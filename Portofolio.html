@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+
+  <!-- Meta Tags for SEO -->
+  <meta name="description" content="Explore my journey in tech, design, and development." />
+  <meta name="keywords" content="portfolio, web developer, UI/UX, projects" />
+  <meta property="og:title" content="My Portfolio" />
+  <meta property="og:description" content="Explore my journey in tech, design, and development." />
+  <meta property="og:type" content="website" />
+
+  <!-- Link Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class', // Tailwind dark mode using class
+    };
+  </script>
+
+  <!-- Dark Mode Toggle Script -->
+  <script>
+    // Function to toggle theme and update icon
+    function toggleTheme() {
+      const htmlElement = document.documentElement;
+      const icon = document.getElementById('theme-icon');
+      const isDarkMode = htmlElement.classList.toggle('dark');
+
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+      icon.textContent = isDarkMode ? '🌙' : '🌞';
+    }
+
+    // Initialize theme on page load
+    (function initializeTheme() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      const htmlElement = document.documentElement;
+      const icon = document.getElementById('theme-icon');
+
+      if (savedTheme === 'dark') {
+        htmlElement.classList.add('dark');
+        icon.textContent = '🌙';
+      } else {
+        htmlElement.classList.remove('dark');
+        icon.textContent = '🌞';
+      }
+    })();
+  </script>
+</head>
+
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-200 transition-all duration-500">
+  <!-- Navbar -->
+  <nav class="bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700 dark:bg-gradient-to-r dark:from-indigo-800 dark:via-purple-900 dark:to-indigo-800 shadow-xl p-4 sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo/Title -->
+      <h1 class="text-3xl font-extrabold text-white tracking-wide hover:text-gray-200 transition-all duration-300">Portfolio</h1>
+
+      <!-- Theme Toggle Button -->
+      <button onclick="toggleTheme()" class="relative p-3 rounded-full bg-gray-300 dark:bg-gray-600 transition-transform transform hover:scale-110 hover:bg-gray-400 dark:hover:bg-gray-500">
+        <span id="theme-icon" class="text-lg transition-all duration-300">🌞</span>
+        <div class="absolute top-0 left-0 w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
+      </button>
+    </div>
+  </nav>
+</body>
+
+</html>
+  
+    <!-- Hero Section -->
+    <section class="text-center py-20 bg-gradient-to-r from-blue-500 via-teal-500 to-blue-500 text-white relative overflow-hidden">
+      <!-- Animated Gradient Background -->
+      <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-600 via-teal-600 to-blue-600 opacity-40 animate-pulse"></div>
+
+      <h2 class="text-5xl font-bold transform transition-all duration-700 ease-in-out hover:scale-110 hover:text-yellow-400 hover:shadow-2xl hover:shadow-yellow-500">Daffa Ramadhan</h2>
+      <p class="mt-4 text-xl transform transition-all duration-700 ease-in-out hover:scale-110 hover:text-yellow-300 hover:translate-y-2">Web Developer | UI/UX Enthusiast | Tech Explorer</p>
+      <a
+        href="https://linkedin.com"
+        class="mt-4 inline-block bg-white text-blue-600 py-2 px-6 rounded-lg font-semibold transition-all duration-500 ease-in-out transform hover:bg-blue-600 hover:text-white hover:scale-125 hover:rotate-6 hover:shadow-2xl hover:shadow-blue-500 hover:ring-4 hover:ring-yellow-500 hover:ring-opacity-60"
+      >
+        Let's Connect!
+      </a>
+    </section>
+
+    <!-- About Me Section -->
+    <section
+      id="about"
+      class="container mx-auto p-8 text-center bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-lg mt-12 relative overflow-hidden transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-500 hover:ring-2 hover:ring-blue-500 hover:ring-opacity-50"
+    >
+      <!-- Floating Glow Effect -->
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 opacity-10 blur-3xl transition-all duration-500 hover:opacity-30"></div>
+
+      <!-- Title Section -->
+      <h2 class="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100 opacity-0 animate-slide-in hover:text-white hover:scale-110 hover:text-blue-400 hover:text-shadow-xl transition-all duration-500 ease-in-out">About Me</h2>
+
+      <!-- Description Section -->
+      <p class="text-lg text-gray-700 dark:text-gray-300 opacity-0 animate-slide-in delay-100 hover:text-blue-400 hover:text-shadow-xl hover:scale-105 hover:translate-x-4 hover:transition-all duration-500 ease-in-out">
+        I am Daffa, a passionate developer specializing in web technologies, UI/UX design, and creative problem-solving.
+      </p>
+
+      <!-- Download CV Button -->
+      <a
+        href="your_cv_link.pdf"
+        class="mt-6 inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 text-white font-medium py-3 px-8 rounded-xl transition-all duration-500 transform hover:scale-125 hover:rotate-6 hover:shadow-xl hover:shadow-blue-600 hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:animate-bounce"
+      >
+        Download CV
+      </a>
+    </section>
+
+    <style>
+      /* Keyframe for slide-in animation */
+      @keyframes slide-in {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-slide-in {
+        animation: slide-in 0.8s ease-out forwards;
+      }
+
+      .delay-100 {
+        animation-delay: 0.2s;
+      }
+
+      /* Bounce effect on button hover */
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .hover\:animate-bounce:hover {
+        animation: bounce 1s ease infinite;
+      }
+    </style>
+
+    <!-- Education Section -->
+<section id="education" class="container mx-auto p-8 text-center bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-gray-800 dark:to-gray-900 rounded-lg shadow-2xl mt-12 relative overflow-hidden">
+    <h2 class="text-4xl font-bold text-white mb-8 opacity-0 animate-slide-in">Education</h2>
+
+    <div class="relative border-l-4 border-white dark:border-blue-400 ml-6 space-y-8">
+      <!-- Education Items -->
+      <div class="group relative pl-8">
+        <!-- Indikator dengan lingkaran berwarna -->
+        <div class="absolute -left-4 top-3 w-8 h-8 bg-gradient-to-r from-green-400 to-blue-500 rounded-full border-4 border-blue-500 dark:border-white animate-ripple"></div>
+        <h3 class="text-lg font-semibold flex items-center gap-2 text-white opacity-0 animate-slide-in delay-100">
+          <span class="text-lg">👶</span> TKIT RABBANI <span class="text-sm text-gray-200">(Bekasi)</span>
+        </h3>
+        <p class="text-sm text-gray-300">2010</p>
+        <p class="text-gray-100 dark:text-gray-400 hidden group-hover:block transition-all duration-300">Early childhood education focusing on moral and academic foundations.</p>
+      </div>
+
+      <div class="group relative pl-8">
+        <!-- Indikator dengan lingkaran berwarna -->
+        <div class="absolute -left-4 top-3 w-8 h-8 bg-gradient-to-r from-yellow-400 to-red-500 rounded-full border-4 border-blue-500 dark:border-white animate-ripple"></div>
+        <h3 class="text-lg font-semibold flex items-center gap-2 text-white opacity-0 animate-slide-in delay-200">
+          <span class="text-lg">🏫</span> SDIT INSAN KAMIL <span class="text-sm text-gray-200">(Bekasi)</span>
+        </h3>
+        <p class="text-sm text-gray-300">2010–2016</p>
+        <p class="text-gray-100 dark:text-gray-400 hidden group-hover:block transition-all duration-300">Elementary school with strong Islamic and academic foundation.</p>
+      </div>
+
+      <div class="group relative pl-8">
+        <!-- Indikator dengan lingkaran berwarna -->
+        <div class="absolute -left-4 top-3 w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full border-4 border-blue-500 dark:border-white animate-ripple"></div>
+        <h3 class="text-lg font-semibold flex items-center gap-2 text-white opacity-0 animate-slide-in delay-300">
+          <span class="text-lg">👨‍🏫</span> ISLAMIC BOARDING SCHOOL INSAN MADANI <span class="text-sm text-gray-200">(Bekasi)</span>
+        </h3>
+        <p class="text-sm text-gray-300">2016–2019</p>
+        <p class="text-gray-100 dark:text-gray-400 hidden group-hover:block transition-all duration-300">An Islamic boarding school focused on Quran memorization, Arabic and English language training in daily life, as well as the study of classical Islamic texts such as Taqrib, Ta'lim Muta'lim, and Tanqihul Qoul.</p>
+      </div>
+
+      <div class="group relative pl-8">
+        <!-- Indikator dengan lingkaran berwarna -->
+        <div class="absolute -left-4 top-3 w-8 h-8 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-full border-4 border-blue-500 dark:border-white animate-ripple"></div>
+        <h3 class="text-lg font-semibold flex items-center gap-2 text-white opacity-0 animate-slide-in delay-400">
+          <span class="text-lg">🎓</span> PONDOK MODERN DARUSSALAM GONTOR <span class="text-sm text-gray-200">(Ponorogo)</span>
+        </h3>
+        <p class="text-sm text-gray-300">2019–2023</p>
+        <p class="text-gray-100 dark:text-gray-400 hidden group-hover:block transition-all duration-300">An Islamic boarding school focused on education and the training of future teachers, where Arabic and English are consistently used 24/7 in daily life. I graduated with the Class of 2023, known as the Credible Generation.</p>
+      </div>
+
+      <div class="group relative pl-8">
+        <!-- Indikator dengan lingkaran berwarna -->
+        <div class="absolute -left-4 top-3 w-8 h-8 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full border-4 border-blue-500 dark:border-white animate-ripple"></div>
+        <h3 class="text-lg font-semibold flex items-center gap-2 text-white opacity-0 animate-slide-in delay-500">
+          <span class="text-lg">🏛️</span> UNIVERSITAS LOGISTIK BISNIS INTERNASIONAL <span class="text-sm text-gray-200">(Bandung)</span>
+        </h3>
+        <p class="text-sm text-gray-300">2024–Present</p>
+        <p class="text-gray-100 dark:text-gray-400 hidden group-hover:block transition-all duration-300">Pursuing a D4 degree in Information Technology.</p>
+      </div>
+    </div>
+</section>
+
+<style>
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-slide-in {
+    animation: slide-in 0.8s ease-out forwards;
+  }
+  .delay-100 {
+    animation-delay: 0.2s;
+  }
+  .delay-200 {
+    animation-delay: 0.4s;
+  }
+  .delay-300 {
+    animation-delay: 0.6s;
+  }
+  .delay-400 {
+    animation-delay: 0.8s;
+  }
+  .delay-500 {
+    animation-delay: 1s;
+  }
+
+  /* Ripple Effect */
+  @keyframes ripple {
+    0% {
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
+    100% {
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+  }
+  .animate-ripple {
+    animation: ripple 1.5s infinite ease-in-out;
+  }
+
+  /* Additional Styling */
+  section#education h2 {
+    animation: slide-in 1s ease-out forwards;
+  }
+
+  .group:hover .animate-ripple {
+    animation: ripple 0.8s ease-in-out forwards;
+  }
+
+  .group:hover h3 {
+    color: #E0E0E0; /* Subtle hover effect on heading */
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+  }
+
+  /* Adding more contrast and enhancing readability */
+  .group:hover p {
+    color: #F0F0F0;
+    opacity: 1;
+  }
+
+  .group:hover .animate-slide-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: all 0.4s ease-out;
+  }
+</style>
+
+    <!-- Work Experience Section -->
+    <section id="work-experience" class="container mx-auto p-6 text-center bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg mt-12">
+      <h2 class="text-3xl font-semibold mb-6">Work Experience</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Card 1: Teaching -->
+        <div
+          class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-2xl transform hover:scale-105 hover:rotate-2 transition-all duration-500 ease-in-out hover:ring-4 hover:ring-yellow-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-600"
+        >
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="text-yellow-500 dark:text-yellow-400 text-2xl">📚</span>
+            <h3 class="text-xl font-semibold">Staff Guru (SMP & SMA)</h3>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm italic mb-2">Pondok Pesantren Dar Al-Faradis, Tegal (2023–2024)</p>
+          <ul class="list-disc pl-6 text-left text-gray-700 dark:text-gray-300">
+            <li>Teaching subjects according to the curriculum for SMP and SMA levels.</li>
+            <li>Guiding scouting activities and successfully leading the team to win 2nd place in the SMA level of Tegal City.</li>
+            <li>Organizing speech competitions between classes to improve public speaking skills among students.</li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Graphic Designer -->
+        <div
+          class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-2xl transform hover:scale-105 hover:rotate-2 transition-all duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600"
+        >
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="text-blue-500 dark:text-blue-400 text-2xl">🎨</span>
+            <h3 class="text-xl font-semibold">Freelance Graphic Designer</h3>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm italic mb-2">Remote Work</p>
+          <ul class="list-disc pl-6 text-left text-gray-700 dark:text-gray-300">
+            <li>Creating visual designs based on client needs, such as community logos, flag designs, and social media materials.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container mx-auto p-6 mt-12 text-center">
+      <h2 class="text-3xl font-semibold mb-4">Projects</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600"
+        >
+          <img src="path/to/your-image1.jpg" alt="Project 1" class="w-full h-48 object-cover rounded-md mb-4 transition-all duration-300 ease-in-out hover:opacity-80 hover:scale-110" />
+          <h3 class="text-xl font-semibold">Project 1</h3>
+          <p class="text-gray-600 dark:text-gray-300">Description of the project.</p>
+        </div>
+        <div
+          class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600"
+        >
+          <img src="path/to/your-image2.jpg" alt="Project 2" class="w-full h-48 object-cover rounded-md mb-4 transition-all duration-300 ease-in-out hover:opacity-80 hover:scale-110" />
+          <h3 class="text-xl font-semibold">Project 2</h3>
+          <p class="text-gray-600 dark:text-gray-300">Description of the project.</p>
+        </div>
+        <div
+          class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600"
+        >
+          <img src="path/to/your-image3.jpg" alt="Project 3" class="w-full h-48 object-cover rounded-md mb-4 transition-all duration-300 ease-in-out hover:opacity-80 hover:scale-110" />
+          <h3 class="text-xl font-semibold">Project 3</h3>
+          <p class="text-gray-600 dark:text-gray-300">Description of the project.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Organizational Experience Section -->
+    <section id="organizational-experience" class="container mx-auto p-6 text-center bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg mt-12">
+      <h2 class="text-3xl font-semibold mb-6">Organizational Experience</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Card 1 -->
+        <div
+          class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-2xl transform hover:scale-105 hover:rotate-2 transition-all duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600"
+        >
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="text-blue-600 dark:text-blue-400 text-2xl">💻</span>
+            <h3 class="text-xl font-semibold">Staff Darussalam Computer Center</h3>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm italic mb-2">Pondok Modern Darussalam Gontor</p>
+          <ul class="list-disc pl-6 text-left text-gray-700 dark:text-gray-300">
+            <li>Maintaining and managing computer devices for organizational operations.</li>
+            <li>Organizing Microsoft Office courses for interested members.</li>
+            <li>Creating financial reports using Microsoft Excel and submitting them to the administration department.</li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-2xl transform hover:scale-105 hover:rotate-2 transition-all duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600"
+        >
+          <div class="flex items-center space-x-3 mb-3">
+            <span class="text-green-600 dark:text-green-400 text-2xl">📝</span>
+            <h3 class="text-xl font-semibold">Secretary – Language Event</h3>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm italic mb-2">Pondok Modern Darussalam Gontor</p>
+          <ul class="list-disc pl-6 text-left text-gray-700 dark:text-gray-300">
+            <li>Managing and documenting meetings, including schedules, invitations, agendas, and minutes.</li>
+            <li>Drafting and managing official letters for events, such as guest invitations, staff support requests, and notifications to related parties.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container mx-auto p-6 mt-12">
+      <h2 class="text-3xl font-semibold text-center mb-8">Skills</h2>
+      <div class="max-w-xl mx-auto grid gap-6">
+        <div
+          class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 hover:rotate-2 transition-all duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600"
+        >
+          <h3 class="text-xl font-semibold mb-2">Languages</h3>
+          <ul class="list-disc pl-6 space-y-1">
+            <li>Indonesian (Native)</li>
+            <li>Arabic (Advanced)</li>
+            <li>English (Intermediate)</li>
+          </ul>
+        </div>
+        <div
+          class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 hover:rotate-2 transition-all duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600"
+        >
+          <h3 class="text-xl font-semibold mb-2">Web Development</h3>
+          <ul class="list-disc pl-6 space-y-1">
+            <li>HTML, CSS, JavaScript</li>
+            <li>PHP, MySQL</li>
+            <li>Web Design (UI/UX)</li>
+          </ul>
+        </div>
+        <div
+          class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 hover:rotate-2 transition-all duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600"
+        >
+          <h3 class="text-xl font-semibold mb-2">Graphic Design</h3>
+          <ul class="list-disc pl-6 space-y-1">
+            <li>Adobe Photoshop, Illustrator</li>
+            <li>Design for social media, logos, and banners</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Top Button -->
+<button id="back-to-top" class="fixed bottom-20 right-9 p-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full shadow-2xl opacity-0 transition-all duration-500 hover:scale-125 hover:from-indigo-600 hover:to-blue-500 animate-bounce">⬆</button>
+<script>
+  const backToTopButton = document.getElementById('back-to-top');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopButton.classList.remove('opacity-0');
+      backToTopButton.classList.add('opacity-100');
+    } else {
+      backToTopButton.classList.add('opacity-0');
+      backToTopButton.classList.remove('opacity-100');
+    }
+  });
+
+  backToTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+<!-- Live Chat WhatsApp -->
+<a href="https://wa.me/6285883077895" target="_blank" class="fixed bottom-6 right-6 p-4 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-emerald-600 hover:to-green-500 text-white rounded-full shadow-2xl transition-all duration-500 hover:scale-125 animate-pulse"> 💬 Chat </a>
+
+<style>
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 10px rgba(0, 255, 127, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(0, 255, 127, 1);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(0, 255, 127, 0.5);
+    }
+  }
+</style>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-6 text-center mt-10">
+      <p>&copy; 2025 Daffa Ramadhan. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
