@@ -68,12 +68,12 @@
 
 </html>
   
-    <!-- Hero Section -->
+<!-- Hero Section -->
 <section class="text-center py-20 bg-gradient-to-r from-blue-500 via-teal-500 to-blue-500 text-white relative overflow-hidden">
-  <!-- Animated Gradient Background -->
-  <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-600 via-teal-600 to-blue-600 opacity-30 animate-pulse"></div>
+  <!-- Animated Gradient Background with Blur Effect -->
+  <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-600 via-teal-600 to-blue-600 opacity-30 backdrop-blur-md animate-pulse"></div>
 
-  <h2 class="text-5xl font-bold transform transition-all duration-700 ease-in-out hover:scale-110 hover:text-yellow-400 hover:shadow-2xl hover:shadow-yellow-500 animate-title">
+  <h2 class="text-5xl font-bold transform transition-all duration-700 ease-in-out hover:scale-110 hover:text-yellow-400 hover:shadow-2xl animate-title">
     Daffa Ramadhan
   </h2>
 
@@ -85,13 +85,19 @@
 
   <a
     href="https://linkedin.com"
-    class="mt-4 inline-block bg-white text-blue-600 py-2 px-6 rounded-lg font-semibold transition-all duration-500 ease-in-out transform hover:bg-blue-600 hover:text-white hover:scale-125 hover:rotate-6 hover:shadow-2xl hover:shadow-blue-500 hover:ring-4 hover:ring-yellow-500 hover:ring-opacity-60 animate-button"
+    class="mt-4 inline-block bg-white text-blue-600 py-2 px-6 rounded-lg font-semibold transition-all duration-500 ease-in-out transform hover:bg-blue-600 hover:text-white hover:scale-105 hover:shadow-lg hover:ring-4 hover:ring-yellow-500 hover:ring-opacity-60 animate-button"
   >
     Let's Connect!
   </a>
 </section>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
   /* Animation for slide-in effect */
   @keyframes slideIn {
     0% {
@@ -108,7 +114,7 @@
     animation: slideIn 1s ease-out forwards;
   }
 
-  /* Scrolling text animation */
+  /* Scrolling text animation with fade effect */
   @keyframes scrollingText {
     0% {
       transform: translateX(100%);
@@ -125,77 +131,63 @@
     display: inline-block;
     white-space: nowrap;
     animation: scrollingText 12s linear infinite;
+    mask-image: linear-gradient(to right, transparent, white 30%, white 70%, transparent);
   }
 
-  /* Smooth hover effect for text and button */
-  @keyframes smoothHover {
-    0% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
+  /* Smooth hover effect for text */
+  .animate-text {
+    transition: transform 0.3s ease, color 0.3s ease;
   }
 
-  .animate-text, .animate-button {
-    animation: smoothHover 1s ease-in-out infinite;
+  /* Hover effect for h2 text shadow */
+  h2:hover {
+    text-shadow: 0px 0px 15px rgba(255, 223, 0, 0.6);
   }
 
-  /* Bounce effect for button */
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(-10px);
-    }
-    60% {
-      transform: translateY(-5px);
-    }
-  }
-
+  /* Hover effect for button with subtle lift */
   .animate-button {
-    animation: bounce 2s infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .animate-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px rgba(255, 223, 0, 0.6);
   }
 </style>
 
     <!-- About Me Section -->
     <section
       id="about"
-      class="container mx-auto p-8 text-center bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-lg mt-12 relative overflow-hidden transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-500 hover:ring-2 hover:ring-blue-500 hover:ring-opacity-50"
+      class="container mx-auto p-10 text-center bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900 rounded-3xl shadow-xl mt-12 relative overflow-hidden transition-all duration-500 hover:shadow-2xl hover:scale-[1.03] hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-500 hover:ring-4 hover:ring-blue-500 hover:ring-opacity-50"
     >
       <!-- Floating Glow Effect -->
-      <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 opacity-10 blur-3xl transition-all duration-500 hover:opacity-30"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 opacity-15 blur-2xl transition-all duration-500 hover:opacity-40"></div>
 
       <!-- Title Section -->
-      <h2 class="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100 opacity-0 animate-slide-in hover:text-white hover:scale-110 hover:text-blue-400 hover:text-shadow-xl transition-all duration-500 ease-in-out">About Me</h2>
+      <h2 class="text-5xl font-extrabold mb-6 text-gray-900 dark:text-gray-100 opacity-0 animate-fade-in hover:text-white hover:scale-110 hover:text-blue-400 hover:drop-shadow-xl transition-all duration-500 ease-in-out">
+        About Me
+      </h2>
 
       <!-- Description Section -->
-      <p class="text-lg text-gray-700 dark:text-gray-300 opacity-0 animate-slide-in delay-100 hover:text-blue-400 hover:text-shadow-xl hover:scale-105 hover:translate-x-4 hover:transition-all duration-500 ease-in-out">
+      <p class="text-lg text-gray-700 dark:text-gray-300 opacity-0 animate-fade-in delay-200 hover:text-blue-400 hover:drop-shadow-lg hover:scale-105 hover:translate-x-3 transition-all duration-500 ease-in-out">
         I am Daffa, a passionate developer specializing in web technologies, UI/UX design, and creative problem-solving.
       </p>
 
       <!-- Download CV Button -->
       <a
         href="/Portofolio/Assets/Portofolio dan CV.pdf"
-        class="mt-6 inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 text-white font-medium py-3 px-8 rounded-xl transition-all duration-500 transform hover:scale-125 hover:rotate-6 hover:shadow-xl hover:shadow-blue-600 hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:animate-bounce"
+        class="mt-8 inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-4 px-10 rounded-full transition-all duration-500 transform hover:scale-125 hover:rotate-3 hover:shadow-lg hover:shadow-blue-600 hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:animate-pulse"
       >
         Download CV
       </a>
     </section>
 
     <style>
-      /* Keyframe for slide-in animation */
-      @keyframes slide-in {
+      /* Keyframe for fade-in animation */
+      @keyframes fade-in {
         from {
           opacity: 0;
-          transform: translateY(15px);
+          transform: translateY(20px);
         }
         to {
           opacity: 1;
@@ -203,375 +195,422 @@
         }
       }
 
-      .animate-slide-in {
-        animation: slide-in 0.8s ease-out forwards;
+      .animate-fade-in {
+        animation: fade-in 0.8s ease-out forwards;
       }
 
-      .delay-100 {
-        animation-delay: 0.2s;
+      .delay-200 {
+        animation-delay: 0.3s;
       }
 
-      /* Bounce effect on button hover */
-      @keyframes bounce {
-        0%,
-        100% {
-          transform: translateY(0);
+      /* Subtle pulse effect on button hover */
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
         }
         50% {
-          transform: translateY(-10px);
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
         }
       }
 
-      .hover\:animate-bounce:hover {
-        animation: bounce 1s ease infinite;
+      .hover\:animate-pulse:hover {
+        animation: pulse 1s ease infinite;
       }
     </style>
 
-<!-- Education Section -->
-<section id="education" class="container mx-auto p-8 text-center bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-gray-800 dark:to-gray-900 rounded-lg shadow-2xl mt-12 relative overflow-hidden">
-  <h2 class="text-4xl font-bold text-white mb-8 opacity-0 animate-slide-in">Education</h2>
-
-  <div class="relative border-l-4 border-white dark:border-blue-400 ml-6 space-y-8">
+<section id="education" class="container mx-auto p-8 text-center rounded-lg shadow-2xl mt-12 relative overflow-hidden bg-gray-100 dark:bg-black transition-colors duration-300 backdrop-blur-md bg-opacity-80 dark:bg-opacity-60">
+  <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-8" data-aos="fade-down">Education</h2>
+  
+  <div class="relative space-y-12">
     <!-- Education Items -->
-    <div class="group relative pl-8">
-      <div class="absolute -left-4 top-3 w-8 h-8 bg-gradient-to-r from-green-400 to-blue-500 rounded-full border-4 border-blue-500 dark:border-white animate-ripple"></div>
-      <h3 class="text-lg font-semibold flex items-center gap-2 text-white opacity-0 animate-slide-in delay-100">
-        <span class="text-lg">👶</span> TKIT RABBANI <span class="text-sm text-gray-200">(Bekasi)</span>
-      </h3>
-      <p class="text-sm text-gray-300">2010</p>
-      <!-- Deskripsi sekolah akan muncul saat hover -->
-      <p class="text-gray-100 dark:text-gray-400 hidden group-hover:block transition-all duration-300 md:block">Early childhood education focusing on moral and academic foundations.</p>
+    <div class="group relative flex items-center" data-aos="fade-right" data-aos-delay="100">
+      <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-green-500 dark:bg-neon-green rounded-full animate-glow"></div>
+      <div class="w-1 bg-gray-400 dark:bg-white h-full absolute left-1/2 transform -translate-x-1/2"></div>
+      <div class="w-1/2 p-6 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg shadow-md ml-auto relative hover:glitch-effect ripple-effect">
+        <h3 class="text-lg font-semibold">TKIT RABBANI <span class="text-sm text-gray-700 dark:text-gray-400">(Bekasi, 2010)</span></h3>
+        <p class="text-gray-700 dark:text-gray-300 hidden group-hover:block transition-all duration-300">Early childhood education focusing on moral and academic foundations.</p>
+      </div>
     </div>
 
-    <div class="group relative pl-8">
-      <div class="absolute -left-4 top-3 w-8 h-8 bg-gradient-to-r from-yellow-400 to-red-500 rounded-full border-4 border-blue-500 dark:border-white animate-ripple"></div>
-      <h3 class="text-lg font-semibold flex items-center gap-2 text-white opacity-0 animate-slide-in delay-200">
-        <span class="text-lg">🏫</span> SDIT INSAN KAMIL <span class="text-sm text-gray-200">(Bekasi)</span>
-      </h3>
-      <p class="text-sm text-gray-300">2010–2016</p>
-      <p class="text-gray-100 dark:text-gray-400 hidden group-hover:block transition-all duration-300 md:block">Elementary school with strong Islamic and academic foundation.</p>
+    <div class="group relative flex items-center" data-aos="fade-left" data-aos-delay="200">
+      <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-yellow-500 dark:bg-neon-yellow rounded-full animate-glow"></div>
+      <div class="w-1 bg-gray-400 dark:bg-white h-full absolute left-1/2 transform -translate-x-1/2"></div>
+      <div class="w-1/2 p-6 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg shadow-md mr-auto relative hover:glitch-effect ripple-effect">
+        <h3 class="text-lg font-semibold">SDIT INSAN KAMIL <span class="text-sm text-gray-700 dark:text-gray-400">(Bekasi, 2010–2016)</span></h3>
+        <p class="text-gray-700 dark:text-gray-300 hidden group-hover:block transition-all duration-300">Elementary school with strong Islamic and academic foundation.</p>
+      </div>
+    </div>
+    <div class="group relative flex items-center" data-aos="fade-right" data-aos-delay="100">
+      <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-green-500 dark:bg-neon-green rounded-full animate-glow"></div>
+      <div class="w-1 bg-gray-400 dark:bg-white h-full absolute left-1/2 transform -translate-x-1/2"></div>
+      <div class="w-1/2 p-6 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg shadow-md ml-auto relative hover:glitch-effect ripple-effect">
+        <h3 class="text-lg font-semibold">ISLAMIC BOARDING SCHOOL INSAN MADANI <span class="text-sm text-gray-700 dark:text-gray-400">(Bekasi, 2016–2019)</span></h3>
+        <p class="text-gray-700 dark:text-gray-300 hidden group-hover:block transition-all duration-300">An Islamic boarding school focused on Quran memorization, Arabic and English language training in daily life, as well as the study of classical Islamic texts such as Taqrib, Ta'lim Muta'lim, and Tanqihul Qoul.</p>
+      </div>
     </div>
 
-    <div class="group relative pl-8">
-      <div class="absolute -left-4 top-3 w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full border-4 border-blue-500 dark:border-white animate-ripple"></div>
-      <h3 class="text-lg font-semibold flex items-center gap-2 text-white opacity-0 animate-slide-in delay-300">
-        <span class="text-lg">👨‍🏫</span> ISLAMIC BOARDING SCHOOL INSAN MADANI <span class="text-sm text-gray-200">(Bekasi)</span>
-      </h3>
-      <p class="text-sm text-gray-300">2016–2019</p>
-      <p class="text-gray-100 dark:text-gray-400 hidden group-hover:block transition-all duration-300 md:block">An Islamic boarding school focused on Quran memorization, Arabic and English language training in daily life, as well as the study of classical Islamic texts such as Taqrib, Ta'lim Muta'lim, and Tanqihul Qoul.</p>
+    <div class="group relative flex items-center" data-aos="fade-left" data-aos-delay="200">
+      <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-yellow-500 dark:bg-neon-yellow rounded-full animate-glow"></div>
+      <div class="w-1 bg-gray-400 dark:bg-white h-full absolute left-1/2 transform -translate-x-1/2"></div>
+      <div class="w-1/2 p-6 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg shadow-md mr-auto relative hover:glitch-effect ripple-effect">
+        <h3 class="text-lg font-semibold">PONDOK MODERN DARUSSALAM GONTOR <span class="text-sm text-gray-700 dark:text-gray-400">(Ponorogo, 2019–2023)</span></h3>
+        <p class="text-gray-700 dark:text-gray-300 hidden group-hover:block transition-all duration-300">An Islamic boarding school focused on education and the training of future teachers, where Arabic and English are consistently used 24/7 in daily life. I graduated with the Class of 2023, known as the Credible Generation.</p>
+      </div>
     </div>
-
-    <div class="group relative pl-8">
-      <div class="absolute -left-4 top-3 w-8 h-8 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-full border-4 border-blue-500 dark:border-white animate-ripple"></div>
-      <h3 class="text-lg font-semibold flex items-center gap-2 text-white opacity-0 animate-slide-in delay-400">
-        <span class="text-lg">🎓</span> PONDOK MODERN DARUSSALAM GONTOR <span class="text-sm text-gray-200">(Ponorogo)</span>
-      </h3>
-      <p class="text-sm text-gray-300">2019–2023</p>
-      <p class="text-gray-100 dark:text-gray-400 hidden group-hover:block transition-all duration-300 md:block">An Islamic boarding school focused on education and the training of future teachers, where Arabic and English are consistently used 24/7 in daily life. I graduated with the Class of 2023, known as the Credible Generation.</p>
+    <div class="group relative flex items-center" data-aos="fade-right" data-aos-delay="100">
+      <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-green-500 dark:bg-neon-green rounded-full animate-glow"></div>
+      <div class="w-1 bg-gray-400 dark:bg-white h-full absolute left-1/2 transform -translate-x-1/2"></div>
+      <div class="w-1/2 p-6 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg shadow-md ml-auto relative hover:glitch-effect ripple-effect">
+        <h3 class="text-lg font-semibold">UNIVERSITAS LOGISTIK BISNIS INTERNASIONAL <span class="text-sm text-gray-700 dark:text-gray-400">(Bandung, 2024–Present)</span></h3>
+        <p class="text-gray-700 dark:text-gray-300 hidden group-hover:block transition-all duration-300">Pursuing a D4 degree in Information Technology.</p>
+      </div>
     </div>
-
-    <div class="group relative pl-8">
-      <div class="absolute -left-4 top-3 w-8 h-8 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full border-4 border-blue-500 dark:border-white animate-ripple"></div>
-      <h3 class="text-lg font-semibold flex items-center gap-2 text-white opacity-0 animate-slide-in delay-500">
-        <span class="text-lg">🏛️</span> UNIVERSITAS LOGISTIK BISNIS INTERNASIONAL <span class="text-sm text-gray-200">(Bandung)</span>
-      </h3>
-      <p class="text-sm text-gray-300">2024–Present</p>
-      <p class="text-gray-100 dark:text-gray-400 hidden group-hover:block transition-all duration-300 md:block">Pursuing a D4 degree in Information Technology.</p>
-    </div>
+    <!-- More Education Items Following the Same Pattern -->
   </div>
 </section>
 
 <style>
-@keyframes slide-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes glow {
+  0% { box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); }
+  50% { box-shadow: 0 0 20px rgba(0, 255, 0, 1); }
+  100% { box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); }
 }
-.animate-slide-in {
-  animation: slide-in 0.8s ease-out forwards;
-}
-.delay-100 {
-  animation-delay: 0.2s;
-}
-.delay-200 {
-  animation-delay: 0.4s;
-}
-.delay-300 {
-  animation-delay: 0.6s;
-}
-.delay-400 {
-  animation-delay: 0.8s;
-}
-.delay-500 {
-  animation-delay: 1s;
-}
+.animate-glow { animation: glow 1.5s infinite alternate; }
 
-/* Ripple Effect */
+@keyframes glitch {
+  0% { transform: skewX(0deg); }
+  20% { transform: skewX(-10deg); }
+  40% { transform: skewX(10deg); }
+  60% { transform: skewX(-5deg); }
+  80% { transform: skewX(5deg); }
+  100% { transform: skewX(0deg); }
+}
+.hover\:glitch-effect:hover { animation: glitch 0.5s infinite alternate; }
+
 @keyframes ripple {
-  0% {
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 1);
-  }
-  100% {
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-  }
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.2); opacity: 0; }
 }
-.animate-ripple {
-  animation: ripple 1.5s infinite ease-in-out;
-}
-
-/* Additional Styling */
-section#education h2 {
-  animation: slide-in 1s ease-out forwards;
-}
-
-.group:hover .animate-ripple {
-  animation: ripple 0.8s ease-in-out forwards;
-}
-
-.group:hover h3 {
-  color: #E0E0E0; /* Subtle hover effect on heading */
-  transform: translateX(10px);
-  transition: all 0.3s ease;
-}
-
-/* Adding more contrast and enhancing readability */
-.group:hover p {
-  color: #F0F0F0;
-  opacity: 1;
-}
-
-.group:hover .animate-slide-in {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  transition: all 0.4s ease-out;
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-  .group {
-    padding-left: 4rem; /* Adjust padding on mobile */
-  }
-
-  .group h3 {
-    font-size: 1.2rem; /* Adjust font size on mobile */
-  }
-
-  .group p {
-    font-size: 0.9rem; /* Smaller text on mobile */
-  }
-
-  .group:hover p {
-    font-size: 1rem; /* Ensure readability of the hover text */
-  }
-
-  /* Show descriptions as blocks on smaller screens */
-  .md:block {
-    display: block;
-  }
-
-  .group:hover .animate-slide-in {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    transition: all 0.4s ease-out;
-  }
+.ripple-effect::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  animation: ripple 0.6s ease-out;
 }
 </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({ duration: 1200 });
+</script>
 
-    <!-- Work Experience Section -->
-<section id="work-experience" class="container mx-auto p-6 text-center bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg mt-12">
-  <h2 class="text-3xl font-semibold mb-6">Work Experience</h2>
-  <div class="grid md:grid-cols-2 gap-6">
+
+<!-- Work Experience Section with Glassmorphism and Enhanced UI -->
+<section id="work-experience" class="container mx-auto p-10 text-center bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl mt-12 backdrop-blur-xl bg-opacity-60 border border-gray-300 dark:border-gray-700 relative overflow-hidden">
+  <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent to-gray-500 dark:to-gray-900 opacity-30 z-0"></div>
+  <h2 class="text-4xl font-extrabold mb-8 text-gray-900 dark:text-gray-100 tracking-wide relative z-10">Work Experience</h2>
+  <div class="grid md:grid-cols-2 gap-8 relative z-10">
     <!-- Card 1: Teaching -->
-    <div
-      class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-2xl transform hover:scale-105 hover:rotate-2 transition-all duration-500 ease-in-out hover:ring-4 hover:ring-yellow-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-600 hover:opacity-90 hover:translate-y-2 animate-walk"
-    >
-      <div class="flex items-center space-x-3 mb-3">
-        <span class="text-yellow-500 dark:text-yellow-400 text-2xl">📚</span>
-        <h3 class="text-xl font-semibold">Staff Guru (SMP & SMA)</h3>
+    <div class="glass-card hover:ring-4 hover:ring-yellow-500">
+      <div class="absolute top-0 left-0 w-full h-2 bg-yellow-500"></div>
+      <div class="flex items-center space-x-4 mb-4">
+        <span class="text-yellow-500 dark:text-yellow-400 text-3xl">📚</span>
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Teaching Staff (Middle & High School)</h3>
       </div>
-      <p class="text-gray-600 dark:text-gray-300 text-sm italic mb-2">Pondok Pesantren Dar Al-Faradis, Tegal (2023–2024)</p>
-      <ul class="list-disc pl-6 text-left text-gray-700 dark:text-gray-300">
-        <li>Teaching subjects according to the curriculum for SMP and SMA levels.</li>
-        <li>Guiding scouting activities and successfully leading the team to win 2nd place in the SMA level of Tegal City.</li>
-        <li>Organizing speech competitions between classes to improve public speaking skills among students.</li>
+      <p class="text-gray-600 dark:text-gray-300 text-md italic mb-4">Dar Al-Faradis Islamic Boarding School, Tegal (2023–2024)</p>
+      <ul class="list-disc pl-8 text-left text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+        <li>Teaching subjects according to middle and high school curriculum.</li>
+        <li>Guiding the scouting team to achieve 2nd place in Tegal City competition.</li>
+        <li>Organizing speech competitions to enhance students' public speaking skills.</li>
       </ul>
     </div>
 
     <!-- Card 2: Graphic Designer -->
-    <div
-      class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-2xl transform hover:scale-105 hover:rotate-2 transition-all duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600 hover:opacity-90 hover:translate-y-2 animate-walk"
-    >
-      <div class="flex items-center space-x-3 mb-3">
-        <span class="text-blue-500 dark:text-blue-400 text-2xl">🎨</span>
-        <h3 class="text-xl font-semibold">Freelance Graphic Designer</h3>
+    <div class="glass-card hover:ring-4 hover:ring-blue-500">
+      <div class="absolute top-0 left-0 w-full h-2 bg-blue-500"></div>
+      <div class="flex items-center space-x-4 mb-4">
+        <span class="text-blue-500 dark:text-blue-400 text-3xl">🎨</span>
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Freelance Graphic Designer</h3>
       </div>
-      <p class="text-gray-600 dark:text-gray-300 text-sm italic mb-2">Remote Work</p>
-      <ul class="list-disc pl-6 text-left text-gray-700 dark:text-gray-300">
-        <li>Creating visual designs based on client needs, such as community logos, flag designs, and social media materials.</li>
+      <p class="text-gray-600 dark:text-gray-300 text-md italic mb-4">Remote Work</p>
+      <ul class="list-disc pl-8 text-left text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+        <li>Creating visual designs such as community logos, banners, and social media content based on client needs.</li>
       </ul>
     </div>
   </div>
 
-  <!-- Displaying Images Below the Cards -->
-  <div class="mt-6">
-    <h3 class="text-2xl font-semibold mb-4">My Work</h3>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <!-- Example Video 1 -->
-      <div class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 hover:rotate-2 transition-transform duration-500 ease-in-out hover:scale-110 hover:rotate-3 hover:shadow-2xl hover:ring-4 hover:ring-yellow-400 hover:ring-opacity-60 hover:brightness-125 hover:translate-y-2 animate-walk">
-        <video class="w-full h-72 object-cover transition-all duration-500 ease-in-out" controls>
+  <!-- Displaying Images and Videos with Interactive UI -->
+  <div class="mt-10 relative z-10">
+    <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100 tracking-wide">My Work</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="media-card">
+        <video class="media-content" controls>
           <source src="/Portofolio/Assets/VID-20240815-WA0039(1).mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
-      <!-- Example Image 2 -->
-      <div class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 hover:rotate-2 transition-transform duration-500 ease-in-out hover:scale-110 hover:rotate-3 hover:shadow-2xl hover:ring-4 hover:ring-yellow-400 hover:ring-opacity-60 hover:brightness-125 hover:translate-y-2 animate-walk">
-        <img src="/Portofolio/Assets/DSC_3925.JPG" alt="Project 2" class="w-full h-72 object-cover transition-all duration-500 ease-in-out">
+      <div class="media-card">
+        <img src="/Portofolio/Assets/DSC_3925.JPG" alt="Project 2" class="media-content">
       </div>
-      <!-- Example Image 3 -->
-      <div class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 hover:rotate-2 transition-transform duration-500 ease-in-out hover:scale-110 hover:rotate-3 hover:shadow-2xl hover:ring-4 hover:ring-yellow-400 hover:ring-opacity-60 hover:brightness-125 hover:translate-y-2 animate-walk">
-        <img src="/Portofolio/Assets/IMG_20231217_110657.jpg" alt="Project 3" class="w-full h-72 object-cover transition-all duration-500 ease-in-out">
+      <div class="media-card">
+        <img src="/Portofolio/Assets/IMG_20231217_110657.jpg" alt="Project 3" class="media-content">
       </div>
     </div>
   </div>
 </section>
 
-<!-- Add this to your CSS to create the walking animation -->
+<!-- Custom CSS with Enhanced Glassmorphism & Dynamic Glow -->
 <style>
-  @keyframes walkAnimation {
-    0% {
-      transform: translateX(0);
-    }
-    25% {
-      transform: translateX(10px);
-    }
-    50% {
-      transform: translateX(0);
-    }
-    75% {
-      transform: translateX(-10px);
-    }
-    100% {
-      transform: translateX(0);
-    }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+    overflow: hidden;
   }
 
-  .animate-walk {
-    animation: walkAnimation 2s infinite ease-in-out;
+  .glass-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .media-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+  }
+
+  .media-card:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .media-content {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .media-card:hover .media-content {
+    transform: scale(1.15);
   }
 </style>
 
 
-    <!-- Projects Section -->
-    <section id="projects" class="container mx-auto p-6 mt-12 text-center">
-      <h2 class="text-3xl font-semibold mb-4">Projects</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div
-          class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600"
-        >
-          <img src="/Portofolio/Assets/Screenshot (101).png" alt="Project 1" class="w-full h-48 object-cover rounded-md mb-4 transition-all duration-300 ease-in-out hover:opacity-80 hover:scale-110" />
-          <h3 class="text-xl font-semibold">Rasana Hade</h3>
-          <p class="text-gray-600 dark:text-gray-300">Rasana Hade is a responsive website for a Padang restaurant, built with HTML, CSS, and PHP.</p>
+<!-- Projects Section with Glassmorphism + Neon Glow (Dark & Light Mode) -->
+<section id="projects" class="container mx-auto p-6 mt-12 text-center">
+  <h2 class="text-3xl font-semibold mb-8">✨ My Projects ✨</h2>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    
+    <div class="project-card">
+      <img src="/Portofolio/Assets/Screenshot (101).png" alt="Project 1" class="project-img" />
+      <h3>Rasana Hade</h3>
+      <p>Rasana Hade is a responsive website for a Padang restaurant, built with HTML, CSS, and PHP.</p>
+    </div>
+    
+    <div class="project-card">
+      <img src="/Portofolio/Assets/Screenshot (106).png" alt="Project 2" class="project-img" />
+      <h3>Snake Dash</h3>
+      <p>Snake Dash is an exciting game developed in Greenfoot.</p>
+    </div>
+    
+    <div class="project-card">
+      <img src="/Portofolio/Assets/Screenshot (104).png" alt="Project 3" class="project-img" />
+      <h3>Hero Wash</h3>
+      <p>Hero Wash is a responsive website designed for a laundry service. Winner of Creative Design Thinking 2024.</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Dark & Light Mode */
+  :root {
+    --bg-light: #f8f9fa;
+    --text-light: #222;
+    --bg-dark: #1a1a2e;
+    --text-dark: #ffffff;
+    --card-bg-light: rgba(255, 255, 255, 0.6);
+    --card-bg-dark: rgba(255, 255, 255, 0.1);
+    --card-border-light: rgba(0, 0, 0, 0.2);
+    --card-border-dark: rgba(255, 255, 255, 0.2);
+  }
+  
+  body {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+  }
+
+  /* Project Card */
+  .project-card {
+    background: var(--card-bg-light);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.5s ease;
+    position: relative;
+    border: 1px solid var(--card-border-light);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .project-card {
+      background: var(--card-bg-dark);
+      border: 1px solid var(--card-border-dark);
+    }
+  }
+
+  /* Hover Glow Effect */
+  .project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+  }
+
+  /* Image Styling */
+  .project-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .project-card:hover .project-img {
+    transform: scale(1.1);
+  }
+</style>
+
+<!-- Include AOS (Animate on Scroll) Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+<!-- Organizational Experience Section -->
+<section id="organizational-experience" class="container mx-auto p-6 text-center bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-lg shadow-lg mt-12 relative overflow-hidden">
+  <h2 class="text-4xl font-bold mb-12 glow-text dark:text-cyan-400">Organizational Experience</h2>
+  <div class="relative border-l-4 border-blue-500 ml-6 space-y-12">
+    
+    <!-- Card 1 -->
+    <div class="relative pl-6" data-aos="fade-up" data-aos-delay="100">
+      <div class="absolute w-6 h-6 bg-blue-500 rounded-full -left-3 top-0 shadow-lg animate-pulse"></div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 neon-glow">
+        <div class="flex items-center space-x-3 mb-3">
+          <span class="text-blue-400 text-3xl">💻</span>
+          <h3 class="text-2xl font-semibold">Staff of Darussalam Computer Center</h3>
         </div>
-        <div
-          class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600"
-        >
-          <img src="/Portofolio/Assets/Screenshot (106).png" alt="Project 2" class="w-full h-48 object-cover rounded-md mb-4 transition-all duration-300 ease-in-out hover:opacity-80 hover:scale-110" />
-          <h3 class="text-xl font-semibold">Snake Dash</h3>
-          <p class="text-gray-600 dark:text-gray-300">Snake Dash is an exciting game developed in Greenfoot.</p>
-        </div>
-        <div
-          class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600"
-        >
-          <img src="/Portofolio/Assets/Screenshot (104).png" alt="Project 3" class="w-full h-48 object-cover rounded-md mb-4 transition-all duration-300 ease-in-out hover:opacity-80 hover:scale-110" />
-          <h3 class="text-xl font-semibold">Hero Wash</h3>
-          <p class="text-gray-600 dark:text-gray-300">HeroWash is a responsive and user-friendly website designed for a laundry service. This project earned 1st place in the Creative Design Thinking competition at MORRIS IF 2024.</p>
-        </div>
+        <p class="text-gray-600 dark:text-gray-400 text-sm italic mb-2">Pondok Modern Darussalam Gontor</p>
+        <ul class="list-disc pl-6 text-left text-gray-700 dark:text-gray-300">
+          <li>Maintaining and managing computer devices for organizational operations.</li>
+          <li>Organizing Microsoft Office courses for interested members.</li>
+          <li>Creating financial reports using Microsoft Excel and submitting them to the administration department.</li>
+        </ul>
       </div>
-    </section>
+    </div>
 
-    <!-- Organizational Experience Section -->
-    <section id="organizational-experience" class="container mx-auto p-6 text-center bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg mt-12">
-      <h2 class="text-3xl font-semibold mb-6">Organizational Experience</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <!-- Card 1 -->
-        <div
-          class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-2xl transform hover:scale-105 hover:rotate-2 transition-all duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600"
-        >
-          <div class="flex items-center space-x-3 mb-3">
-            <span class="text-blue-600 dark:text-blue-400 text-2xl">💻</span>
-            <h3 class="text-xl font-semibold">Staff of Darussalam Computer Center</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-300 text-sm italic mb-2">Pondok Modern Darussalam Gontor</p>
-          <ul class="list-disc pl-6 text-left text-gray-700 dark:text-gray-300">
-            <li>Maintaining and managing computer devices for organizational operations.</li>
-            <li>Organizing Microsoft Office courses for interested members.</li>
-            <li>Creating financial reports using Microsoft Excel and submitting them to the administration department.</li>
-          </ul>
+    <!-- Card 2 -->
+    <div class="relative pl-6" data-aos="fade-up" data-aos-delay="200">
+      <div class="absolute w-6 h-6 bg-green-500 rounded-full -left-3 top-0 shadow-lg animate-pulse"></div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 neon-glow">
+        <div class="flex items-center space-x-3 mb-3">
+          <span class="text-green-400 text-3xl">📝</span>
+          <h3 class="text-2xl font-semibold">Secretary – Language Event</h3>
         </div>
-
-        <!-- Card 2 -->
-        <div
-          class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-2xl transform hover:scale-105 hover:rotate-2 transition-all duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600"
-        >
-          <div class="flex items-center space-x-3 mb-3">
-            <span class="text-green-600 dark:text-green-400 text-2xl">📝</span>
-            <h3 class="text-xl font-semibold">Secretary – Language Event</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-300 text-sm italic mb-2">Pondok Modern Darussalam Gontor</p>
-          <ul class="list-disc pl-6 text-left text-gray-700 dark:text-gray-300">
-            <li>Managing and documenting meetings, including schedules, invitations, agendas, and minutes.</li>
-            <li>Drafting and managing official letters for events, such as guest invitations, staff support requests, and notifications to related parties.</li>
-          </ul>
-        </div>
-
-        <!-- Card 3 -->
-        <div
-          class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-2xl transform hover:scale-105 hover:rotate-2 transition-all duration-500 ease-in-out hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600"
-        >
-          <div class="flex items-center space-x-3 mb-3">
-            <span class="text-red-600 dark:text-red-400 text-2xl">🏛</span>
-            <h3 class="text-xl font-semibold">Internship Staff – Kementerian Dalam Negeri BEM KEMA ULBI (2025)</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-300 text-sm italic mb-2">BEM KEMA ULBI</p>
-          <ul class="list-disc pl-6 text-left text-gray-700 dark:text-gray-300">
-            <li>Responsible for managing the organization's internal and external administration.</li>
-            <li>Analyzing and compiling internal policy reports for the Ministry of Home Affairs BEM KEMA ULBI.</li>
-            <li>Received the award as Best Intern BEM KEMA ULBI 2024/2025.</li>
-          </ul>
-        </div>
+        <p class="text-gray-600 dark:text-gray-400 text-sm italic mb-2">Pondok Modern Darussalam Gontor</p>
+        <ul class="list-disc pl-6 text-left text-gray-700 dark:text-gray-300">
+          <li>Managing and documenting meetings, including schedules, invitations, agendas, and minutes.</li>
+          <li>Drafting and managing official letters for events.</li>
+        </ul>
       </div>
-    </section>
+    </div>
 
-    <!-- Achievements Section -->
-    <section id="achievements" class="container mx-auto p-6 text-center bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg mt-12">
-      <h2 class="text-3xl font-semibold mb-6">Achievements</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <!-- Achievement 1 -->
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-2xl transform hover:scale-110 transition-all duration-500 ease-in-out hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-600 hover:text-white">
-          <div class="flex items-center space-x-3 mb-3">
-            <span class="text-yellow-600 dark:text-yellow-400 text-2xl">🏆</span>
-            <h3 class="text-xl font-semibold">Best Intern – Kementerian Dalam Negeri BEM KEMA ULBI 2024/2025</h3>
-          </div>
+    <!-- Card 3 -->
+    <div class="relative pl-6" data-aos="fade-up" data-aos-delay="300">
+      <div class="absolute w-6 h-6 bg-red-500 rounded-full -left-3 top-0 shadow-lg animate-pulse"></div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 neon-glow">
+        <div class="flex items-center space-x-3 mb-3">
+          <span class="text-red-400 text-3xl">🏛</span>
+          <h3 class="text-2xl font-semibold">Internship Staff – Kementerian Dalam Negeri BEM KEMA ULBI</h3>
         </div>
-        
-        <!-- Achievement 2 -->
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-2xl transform hover:scale-110 transition-all duration-500 ease-in-out hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600 hover:text-white">
-          <div class="flex items-center space-x-3 mb-3">
-            <span class="text-blue-600 dark:text-blue-400 text-2xl">🎨</span>
-            <h3 class="text-xl font-semibold">1st Place – Creative Design Thinking Competition MORRIS IF 2024/2025</h3>
-          </div>
-        </div>
+        <p class="text-gray-600 dark:text-gray-400 text-sm italic mb-2">BEM KEMA ULBI</p>
+        <ul class="list-disc pl-6 text-left text-gray-700 dark:text-gray-300">
+          <li>Responsible for managing the organization's internal and external administration.</li>
+          <li>Analyzing and compiling internal policy reports.</li>
+          <li>Received the award as Best Intern BEM KEMA ULBI 2024/2025.</li>
+        </ul>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+<!-- Initialize AOS -->
+<script>
+  AOS.init();
+</script>
+
+<!-- Custom CSS -->
+<style>
+  .glow-text {
+    text-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4, 0 0 40px #00bcd4;
+  }
+  .neon-glow:hover {
+    box-shadow: 0 0 15px #00bcd4, 0 0 30px #00bcd4;
+    transform: scale(1.05);
+  }
+</style>
+
+<!-- Achievements Section -->
+<section id="achievements" class="container mx-auto p-8 text-center bg-gray-100 dark:bg-gray-900 rounded-lg shadow-lg mt-12">
+  <h2 class="text-4xl font-bold mb-10 text-gray-800 dark:text-white transition-colors">Achievements</h2>
+  <div class="grid md:grid-cols-2 gap-8">
+    <!-- Achievement 1 -->
+    <div class="relative bg-white dark:bg-gray-800 p-8 rounded-xl shadow-xl transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-yellow-500 dark:hover:bg-yellow-600 hover:text-white">
+      <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-yellow-500 dark:bg-yellow-600 text-white w-14 h-14 flex items-center justify-center rounded-full text-3xl shadow-lg">
+        🏆
+      </div>
+      <h3 class="text-2xl font-semibold mt-6 text-gray-800 dark:text-gray-200 transition-colors">Best Intern</h3>
+      <p class="text-lg opacity-80 text-gray-600 dark:text-gray-400 transition-colors">Kementerian Dalam Negeri BEM KEMA ULBI 2024/2025</p>
+    </div>
+    
+    <!-- Achievement 2 -->
+    <div class="relative bg-white dark:bg-gray-800 p-8 rounded-xl shadow-xl transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:bg-blue-500 dark:hover:bg-blue-600 hover:text-white">
+      <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-500 dark:bg-blue-600 text-white w-14 h-14 flex items-center justify-center rounded-full text-3xl shadow-lg">
+        🎨
+      </div>
+      <h3 class="text-2xl font-semibold mt-6 text-gray-800 dark:text-gray-200 transition-colors">1st Place - Creative Design Thinking</h3>
+      <p class="text-lg opacity-80 text-gray-600 dark:text-gray-400 transition-colors">MORRIS IF 2024/2025</p>
+    </div>
+  </div>
+</section>
 
     <!-- Skills Section with Tabs -->
     <section id="skills" class="container mx-auto p-6 mt-12">
