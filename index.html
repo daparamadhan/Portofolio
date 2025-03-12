@@ -603,71 +603,78 @@
   </div>
 </section>
 
-    <!-- Skills Section with Tabs -->
-    <section id="skills" class="container mx-auto p-6 mt-12">
-      <h2 class="text-3xl font-semibold text-center mb-8">Skills</h2>
-      
-      <div class="max-w-xl mx-auto">
-        <div class="border-b border-gray-200 dark:border-gray-700">
-          <nav class="flex space-x-4" role="tablist">
-            <button class="tab-link px-4 py-2 text-white bg-gradient-to-r from-blue-400 to-purple-500 dark:from-purple-600 dark:to-pink-500 hover:from-blue-500 hover:to-purple-600 rounded-md transition-all duration-500 ease-in-out focus:outline-none focus:ring-4 focus:ring-purple-500 transform hover:scale-110 hover:-translate-y-1" data-tab="languages">Languages</button>
-            <button class="tab-link px-4 py-2 text-white bg-gradient-to-r from-green-400 to-teal-500 dark:from-teal-600 dark:to-green-500 hover:from-green-500 hover:to-teal-600 rounded-md transition-all duration-500 ease-in-out focus:outline-none focus:ring-4 focus:ring-green-500 transform hover:scale-110 hover:-translate-y-1" data-tab="software">Software</button>
-            <button class="tab-link px-4 py-2 text-white bg-gradient-to-r from-yellow-400 to-orange-500 dark:from-orange-600 dark:to-red-500 hover:from-yellow-500 hover:to-orange-600 rounded-md transition-all duration-500 ease-in-out focus:outline-none focus:ring-4 focus:ring-orange-500 transform hover:scale-110 hover:-translate-y-1" data-tab="other">Other Skills</button>
-          </nav>
-        </div>
-        
-        <div class="mt-6">
-          <div class="tab-content" id="languages">
-            <div class="bg-gradient-to-br from-blue-100 to-purple-200 dark:from-gray-700 dark:to-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transform transition-transform duration-500 ease-in-out hover:scale-105 hover:rotate-1">
-              <h3 class="text-xl font-semibold mb-2">Languages</h3>
-              <ul class="list-disc pl-6 space-y-1">
-                <li>Indonesian (Native)</li>
-                <li>Arabic (Advanced)</li>
-                <li>English (Intermediate)</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tab-content hidden" id="software">
-            <div class="bg-gradient-to-br from-green-100 to-teal-200 dark:from-gray-700 dark:to-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transform transition-transform duration-500 ease-in-out hover:scale-105 hover:-rotate-1">
-              <h3 class="text-xl font-semibold mb-2">Software</h3>
-              <ul class="list-disc pl-6 space-y-1">
-                <li>Microsoft Office Suite</li>
-                <li>CorelDRAW, Canva, Figma</li>
-                <li>Web Development (Beginner)</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tab-content hidden" id="other">
-            <div class="bg-gradient-to-br from-yellow-100 to-orange-200 dark:from-gray-700 dark:to-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transform transition-transform duration-500 ease-in-out hover:scale-105 hover:rotate-2">
-              <h3 class="text-xl font-semibold mb-2">Other Skills</h3>
-              <ul class="list-disc pl-6 space-y-1">
-                <li>UI/UX Design</li>
-                <li>Event Organizer</li>
-                <li>Public Speaking</li>
-                <li>Lead Generation</li>
-              </ul>
-            </div>
-          </div>
+<!-- Skills Section with Tabs -->
+<section id="skills" class="container mx-auto p-6 mt-12">
+  <h2 class="text-3xl font-semibold text-center mb-8">Skills</h2>
+  
+  <div class="max-w-xl mx-auto">
+    <div class="border-b border-gray-200 dark:border-gray-700">
+      <nav class="flex space-x-4" role="tablist">
+        <button class="tab-link px-4 py-2 text-white bg-gradient-to-r from-blue-400 to-purple-500 dark:from-purple-600 dark:to-pink-500 hover:from-blue-500 hover:to-purple-600 rounded-md transition-all duration-500 ease-in-out focus:outline-none focus:ring-4 focus:ring-purple-500 transform hover:scale-110 hover:-translate-y-1 active" data-tab="languages">Languages</button>
+        <button class="tab-link px-4 py-2 text-white bg-gradient-to-r from-green-400 to-teal-500 dark:from-teal-600 dark:to-green-500 hover:from-green-500 hover:to-teal-600 rounded-md transition-all duration-500 ease-in-out focus:outline-none focus:ring-4 focus:ring-green-500 transform hover:scale-110 hover:-translate-y-1" data-tab="software">Software</button>
+        <button class="tab-link px-4 py-2 text-white bg-gradient-to-r from-yellow-400 to-orange-500 dark:from-orange-600 dark:to-red-500 hover:from-yellow-500 hover:to-orange-600 rounded-md transition-all duration-500 ease-in-out focus:outline-none focus:ring-4 focus:ring-orange-500 transform hover:scale-110 hover:-translate-y-1" data-tab="other">Other Skills</button>
+      </nav>
+    </div>
+    
+    <div class="mt-6">
+      <div class="tab-content" id="languages">
+        <div class="bg-gradient-to-br from-blue-100 to-purple-200 dark:from-gray-700 dark:to-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transform transition-transform duration-500 ease-in-out hover:scale-105 hover:rotate-1">
+          <h3 class="text-xl font-semibold mb-2">Languages</h3>
+          <ul class="list-disc pl-6 space-y-1">
+            <li>Indonesian (Native)</li>
+            <li>Arabic (Advanced)</li>
+            <li>English (Intermediate)</li>
+          </ul>
         </div>
       </div>
-    </section>
-    
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const tabs = document.querySelectorAll(".tab-link");
-        const contents = document.querySelectorAll(".tab-content");
-        
-        tabs.forEach(tab => {
-          tab.addEventListener("click", function () {
-            tabs.forEach(t => t.classList.remove("text-white", "bg-blue-500"));
-            this.classList.add("text-white", "bg-blue-500");
-            
-            contents.forEach(content => content.classList.add("hidden"));
-            document.getElementById(this.getAttribute("data-tab")).classList.remove("hidden");
-          });
+      <div class="tab-content hidden" id="software">
+        <div class="bg-gradient-to-br from-green-100 to-teal-200 dark:from-gray-700 dark:to-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transform transition-transform duration-500 ease-in-out hover:scale-105 hover:-rotate-1">
+          <h3 class="text-xl font-semibold mb-2">Software</h3>
+          <ul class="list-disc pl-6 space-y-1">
+            <li>Microsoft Office Suite</li>
+            <li>CorelDRAW, Canva, Figma</li>
+            <li>Web Development (Beginner)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-content hidden" id="other">
+        <div class="bg-gradient-to-br from-yellow-100 to-orange-200 dark:from-gray-700 dark:to-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transform transition-transform duration-500 ease-in-out hover:scale-105 hover:rotate-2">
+          <h3 class="text-xl font-semibold mb-2">Other Skills</h3>
+          <ul class="list-disc pl-6 space-y-1">
+            <li>UI/UX Design</li>
+            <li>Event Organizer</li>
+            <li>Public Speaking</li>
+            <li>Lead Generation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll(".tab-link");
+    const contents = document.querySelectorAll(".tab-content");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", function () {
+        tabs.forEach(t => {
+          t.classList.remove("active");
+          t.classList.remove("bg-opacity-100");
+          t.classList.add("bg-opacity-70");
         });
+
+        this.classList.add("active");
+        this.classList.remove("bg-opacity-70");
+        this.classList.add("bg-opacity-100");
+
+        contents.forEach(content => content.classList.add("hidden"));
+        document.getElementById(this.getAttribute("data-tab")).classList.remove("hidden");
       });
-    </script>
+    });
+  });
+</script>
 
     <!-- Back to Top Button -->
 <button id="back-to-top" class="fixed bottom-20 right-9 p-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full shadow-2xl opacity-0 transition-all duration-500 hover:scale-125 hover:from-indigo-600 hover:to-blue-500 animate-bounce">
