@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan Challenge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .btn-hover {
+            @apply transition-all duration-300 transform hover:scale-105 hover:bg-gradient-to-r from-purple-500 to-indigo-500;
+        }
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .btn-click:active {
+            transform: scale(0.95);
+        }
+        .parallax {
+            background-image: url('https://source.unsplash.com/1600x900/?ramadan,mosque');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .completed {
+            background-color: #4CAF50 !important;
+            text-decoration: line-through;
+        }
+        .progress-bar {
+            transition: width 1s ease-in-out;
+        }
+    </style>
+    <script>
+        function markComplete(button) {
+            button.parentElement.classList.toggle("completed");
+            button.innerText = button.parentElement.classList.contains("completed") ? "✓ Selesai" : "Selesai";
+        }
+
+        function updateProgress() {
+            let progress = document.getElementById("progress-bar");
+            let percentage = Math.floor(Math.random() * 100) + 1; 
+            progress.style.width = percentage + "%";
+            document.getElementById("progress-text").innerText = percentage + "% Tercapai";
+        }
+
+        window.onload = updateProgress;
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <div class="parallax">🌙 Ramadan Challenge</div>
+    
+    <div class="max-w-3xl mx-auto p-6">
+        <h1 class="text-3xl font-bold text-center text-indigo-600 mb-6">Tantangan Ibadah Ramadan</h1>
+        
+        <div class="bg-white p-4 rounded-xl shadow-md">
+            <h2 class="text-xl font-semibold mb-3">✅ Tantangan Harian</h2>
+            <ul class="space-y-3">
+                <li class="flex justify-between bg-gray-200 p-3 rounded-lg">
+                    <span>Shalat 5 Waktu</span>
+                    <button onclick="markComplete(this)" class="px-4 py-2 bg-indigo-600 text-white rounded-lg btn-hover btn-click">Selesai</button>
+                </li>
+                <li class="flex justify-between bg-gray-200 p-3 rounded-lg">
+                    <span>Sedekah Harian</span>
+                    <button onclick="markComplete(this)" class="px-4 py-2 bg-indigo-600 text-white rounded-lg btn-hover btn-click">Selesai</button>
+                </li>
+                <li class="flex justify-between bg-gray-200 p-3 rounded-lg">
+                    <span>Tahajud</span>
+                    <button onclick="markComplete(this)" class="px-4 py-2 bg-indigo-600 text-white rounded-lg btn-hover btn-click">Selesai</button>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="bg-white p-4 rounded-xl shadow-md mt-6">
+            <h2 class="text-xl font-semibold mb-3">🏆 Leaderboard</h2>
+            <ul class="space-y-2">
+                <li class="flex justify-between border-b py-2">
+                    <span>👑 Alex</span>
+                    <span class="font-semibold">150 Poin</span>
+                </li>
+                <li class="flex justify-between border-b py-2">
+                    <span>🌟 Daffa</span>
+                    <span class="font-semibold">120 Poin</span>
+                </li>
+                <li class="flex justify-between border-b py-2">
+                    <span>🔥 Hana</span>
+                    <span class="font-semibold">100 Poin</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="text-center mt-6">
+            <button class="px-6 py-3 bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold rounded-full btn-hover pulse btn-click">Klaim Reward 🎁</button>
+        </div>
+        
+        <div class="bg-white p-4 rounded-xl shadow-md mt-6 text-center">
+            <h2 class="text-xl font-semibold mb-3">📊 Statistik Ibadah</h2>
+            <p class="text-gray-600">Lihat perkembangan ibadah kamu selama Ramadan</p>
+            <div class="w-full bg-gray-200 rounded-lg overflow-hidden h-6 mt-3 relative">
+                <div id="progress-bar" class="h-full bg-indigo-500 progress-bar" style="width: 70%;"></div>
+                <span id="progress-text" class="absolute w-full text-center text-white font-semibold top-0 leading-6">70% Tercapai</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
