@@ -157,7 +157,71 @@
   }
 </style>
 
-    
+    <!-- About Me Section -->
+    <section
+      id="about"
+      class="container mx-auto p-10 text-center bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900 rounded-3xl shadow-xl mt-12 relative overflow-hidden transition-all duration-500 hover:shadow-2xl hover:scale-[1.03] hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-500 hover:ring-4 hover:ring-blue-500 hover:ring-opacity-50"
+    >
+      <!-- Floating Glow Effect -->
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 opacity-15 blur-2xl transition-all duration-500 hover:opacity-40"></div>
+
+      <!-- Title Section -->
+      <h2 class="text-5xl font-extrabold mb-6 text-gray-900 dark:text-gray-100 opacity-0 animate-fade-in hover:text-white hover:scale-110 hover:text-blue-400 hover:drop-shadow-xl transition-all duration-500 ease-in-out">
+        About Me
+      </h2>
+
+      <!-- Description Section -->
+      <p class="text-lg text-gray-700 dark:text-gray-300 opacity-0 animate-fade-in delay-200 hover:text-blue-400 hover:drop-shadow-lg hover:scale-105 hover:translate-x-3 transition-all duration-500 ease-in-out">
+        I am Daffa, a passionate developer specializing in web technologies, UI/UX design, and creative problem-solving.
+      </p>
+
+      <!-- Download CV Button -->
+      <a
+        href="/Portofolio/Assets/Portofolio dan CV.pdf"
+        class="mt-8 inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-4 px-10 rounded-full transition-all duration-500 transform hover:scale-125 hover:rotate-3 hover:shadow-lg hover:shadow-blue-600 hover:ring-4 hover:ring-blue-500 hover:ring-opacity-60 hover:animate-pulse"
+      >
+        Download CV
+      </a>
+    </section>
+
+    <style>
+      /* Keyframe for fade-in animation */
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fade-in 0.8s ease-out forwards;
+      }
+
+      .delay-200 {
+        animation-delay: 0.3s;
+      }
+
+      /* Subtle pulse effect on button hover */
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .hover\:animate-pulse:hover {
+        animation: pulse 1s ease infinite;
+      }
+    </style>
 
 <section id="education" class="container mx-auto p-8 text-center rounded-lg shadow-2xl mt-12 relative overflow-hidden bg-gray-100 dark:bg-black transition-colors duration-300 backdrop-blur-md bg-opacity-80 dark:bg-opacity-60">
   <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-8" data-aos="fade-down">Education</h2>
