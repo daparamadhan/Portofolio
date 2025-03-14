@@ -304,6 +304,106 @@
   AOS.init({ duration: 1200 });
 </script>
 
+<!-- Work Experience Section with Glassmorphism and Enhanced UI -->
+<section id="work-experience" class="container mx-auto p-10 text-center bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl mt-12 backdrop-blur-xl bg-opacity-60 border border-gray-300 dark:border-gray-700 relative overflow-hidden">
+  <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent to-gray-500 dark:to-gray-900 opacity-30 z-0"></div>
+  <h2 class="text-4xl font-extrabold mb-8 text-gray-900 dark:text-gray-100 tracking-wide relative z-10">Work Experience</h2>
+  <div class="grid md:grid-cols-2 gap-8 relative z-10">
+    <!-- Card 1: Teaching -->
+    <div class="glass-card hover:ring-4 hover:ring-yellow-500">
+      <div class="absolute top-0 left-0 w-full h-2 bg-yellow-500"></div>
+      <div class="flex items-center space-x-4 mb-4">
+        <span class="text-yellow-500 dark:text-yellow-400 text-3xl">📚</span>
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Teaching Staff (Middle & High School)</h3>
+      </div>
+      <p class="text-gray-600 dark:text-gray-300 text-md italic mb-4">Dar Al-Faradis Islamic Boarding School, Tegal (2023–2024)</p>
+      <ul class="list-disc pl-8 text-left text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+        <li>Teaching subjects according to middle and high school curriculum.</li>
+        <li>Guiding the scouting team to achieve 2nd place in Tegal City competition.</li>
+        <li>Organizing speech competitions to enhance students' public speaking skills.</li>
+      </ul>
+    </div>
+
+    <!-- Card 2: Graphic Designer -->
+    <div class="glass-card hover:ring-4 hover:ring-blue-500">
+      <div class="absolute top-0 left-0 w-full h-2 bg-blue-500"></div>
+      <div class="flex items-center space-x-4 mb-4">
+        <span class="text-blue-500 dark:text-blue-400 text-3xl">🎨</span>
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Freelance Graphic Designer</h3>
+      </div>
+      <p class="text-gray-600 dark:text-gray-300 text-md italic mb-4">Remote Work</p>
+      <ul class="list-disc pl-8 text-left text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+        <li>Creating visual designs such as community logos, banners, and social media content based on client needs.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Displaying Images and Videos with Interactive UI -->
+  <div class="mt-10 relative z-10">
+    <h3 class="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100 tracking-wide">My Work</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="media-card">
+        <video class="media-content" controls>
+          <source src="/Portofolio/Assets/VID-20240815-WA0039(1).mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="media-card">
+        <img src="/Portofolio/Assets/DSC_3925.JPG" alt="Project 2" class="media-content">
+      </div>
+      <div class="media-card">
+        <img src="/Portofolio/Assets/IMG_20231217_110657.jpg" alt="Project 3" class="media-content">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Custom CSS with Enhanced Glassmorphism & Dynamic Glow -->
+<style>
+  .glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .media-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+  }
+
+  .media-card:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .media-content {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .media-card:hover .media-content {
+    transform: scale(1.15);
+  }
+</style>
 
 
 <!-- Projects Section with Glassmorphism + Neon Glow (Dark & Light Mode) -->
