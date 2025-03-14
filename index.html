@@ -70,7 +70,93 @@
 </body>
 
 </html>
-  
+  <!-- Hero Section -->
+<section class="text-center py-20 bg-gradient-to-r from-blue-500 via-teal-500 to-blue-500 text-white relative overflow-hidden">
+  <!-- Animated Gradient Background with Blur Effect -->
+  <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 via-teal-600 to-blue-600 opacity-40 backdrop-blur-lg animate-pulse"></div>
+
+  <h2 class="relative text-6xl font-extrabold transform transition-all duration-700 ease-in-out hover:scale-110 hover:text-yellow-400 hover:shadow-2xl animate-title drop-shadow-lg">
+    Daffa Ramadhan
+  </h2>
+
+  <p class="relative mt-6 text-2xl font-light transform transition-all duration-700 ease-in-out hover:scale-110 hover:text-yellow-300 hover:translate-y-2 animate-text">
+    <span class="text-moving">
+      Web Developer | UI/UX Enthusiast | Graphic Designer
+    </span>
+  </p>
+
+  <a
+    href="https://linkedin.com"
+    class="relative mt-6 inline-block bg-white text-blue-600 py-3 px-8 rounded-lg font-semibold transition-all duration-500 ease-in-out transform hover:bg-blue-600 hover:text-white hover:scale-110 hover:shadow-xl hover:ring-4 hover:ring-yellow-500 hover:ring-opacity-60 animate-button"
+  >
+    Let's Connect!
+  </a>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Animation for slide-in effect */
+  @keyframes slideIn {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-title {
+    animation: slideIn 1s ease-out forwards;
+  }
+
+  /* Scrolling text animation with fade effect */
+  @keyframes scrollingText {
+    0% {
+      transform: translateX(100%);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .text-moving {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollingText 10s linear infinite;
+    mask-image: linear-gradient(to right, transparent, white 25%, white 75%, transparent);
+  }
+
+  /* Smooth hover effect for text */
+  .animate-text {
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  /* Hover effect for h2 text shadow */
+  h2:hover {
+    text-shadow: 0px 0px 20px rgba(255, 223, 0, 0.8);
+  }
+
+  /* Enhanced Button Hover Effect */
+  .animate-button {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .animate-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(255, 223, 0, 0.7);
+  }
+</style>
+
     <!-- About Me Section -->
     <section
       id="about"
