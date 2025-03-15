@@ -8,81 +8,202 @@
 </head>
 <body class="font-sans bg-gray-100">
     <!-- Header & Navigasi -->
-    <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
-        <h1 class="text-2xl font-bold">Dadi Berkah 88</h1>
-        <nav>
-            <ul class="flex space-x-4">
-                <li><a href="#home" class="hover:underline hover:text-gray-300">Home</a></li>
-                <li><a href="#produk" class="hover:underline hover:text-gray-300">Produk</a></li>
-                <li><a href="#tentang" class="hover:underline hover:text-gray-300">Tentang Kami</a></li>
-                <li><a href="#kontak" class="hover:underline hover:text-gray-300">Kontak</a></li>
-            </ul>
-        </nav>
-    </header>
+<header class="bg-blue-700 text-white p-4 flex justify-between items-center shadow-md">
+    <h1 class="text-2xl font-bold text-white">Dadi Berkah 88</h1>
+    <nav aria-label="Navigasi utama">
+        <ul class="flex space-x-6">
+            <li>
+                <a href="#home" class="text-white font-medium transition duration-300 hover:text-yellow-300 hover:underline">Beranda</a>
+            </li>
+            <li>
+                <a href="#produk" class="text-white font-medium transition duration-300 hover:text-yellow-300 hover:underline">Produk</a>
+            </li>
+            <li>
+                <a href="#fotokopi-atk" class="text-white font-medium transition duration-300 hover:text-yellow-300 hover:underline">Fotokopi & ATK</a>
+            </li>
+            <li>
+                <a href="#kontak" class="text-white font-medium transition duration-300 hover:text-yellow-300 hover:underline">Kontak</a>
+            </li>
+        </ul>
+    </nav>
+</header>
 
     <!-- Hero Section -->
-    <section id="home" class="text-center py-16 bg-blue-500 text-white">
-        <h2 class="text-4xl font-bold">Selamat Datang di Dadi Berkah 88</h2>
-        <p class="text-lg mt-2">Tempat terbaik untuk kebutuhan harian Anda!</p>
-        <a href="#produk" class="mt-4 inline-block bg-white text-blue-500 px-6 py-2 rounded-lg shadow-md hover:bg-gray-200 hover:scale-105 transition-transform">Lihat Produk</a>
-    </section>
+<section id="home" class="text-center py-20 bg-gradient-to-r from-blue-500 to-blue-700 text-white">
+    <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-5xl font-extrabold animate-fade-in">
+            Selamat Datang di 
+        </h2>
+        <h2 class="text-5xl font-extrabold text-yellow-300 mt-2">
+            Dadi Berkah 88
+        </h2>
+        <p class="text-lg mt-3 opacity-90">
+            Tempat terbaik untuk kebutuhan harian Anda dengan harga terjangkau dan kualitas terbaik!
+        </p>
+        <a href="#produk"
+            class="mt-6 inline-block bg-yellow-300 text-blue-900 font-semibold px-8 py-3 rounded-full shadow-lg 
+                   transition-transform transform hover:scale-110 hover:bg-yellow-400">
+            Lihat Produk
+        </a>
+    </div>
+</section>
 
-    <!-- Produk Section -->
-    <section id="produk" class="py-16 text-center">
-        <h2 class="text-3xl font-bold mb-6">Produk Kami</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
-            <div class="bg-white p-4 shadow-md rounded-lg hover:shadow-xl transition-shadow hover:scale-105">
-                <img src="produk1.jpg" alt="Produk 1" class="w-full h-48 object-cover rounded hover:opacity-80">
+
+<!-- Produk Section dengan Carousel Manual -->
+<section id="produk" class="py-16 text-center px-4">
+    <h2 class="text-3xl font-bold mb-6">Produk Kami</h2>
+    
+    <div class="relative w-full max-w-lg mx-auto overflow-hidden">
+        <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
+            <!-- Beras Premium -->
+            <div class="min-w-full bg-white p-4 shadow-md rounded-lg">
+                <img src="produk1.jpg" alt="Beras Premium" class="w-full h-48 object-cover rounded">
                 <h3 class="text-xl font-bold mt-2">Beras Premium</h3>
-                <p class="text-gray-700">Rp. 12.000/kg</p>
+                <p class="text-gray-700">Rp14.000/kg</p>
             </div>
-            <div class="bg-white p-4 shadow-md rounded-lg hover:shadow-xl transition-shadow hover:scale-105">
-                <img src="produk2.jpg" alt="Produk 2" class="w-full h-48 object-cover rounded hover:opacity-80">
+            <!-- Minyak Goreng -->
+            <div class="min-w-full bg-white p-4 shadow-md rounded-lg">
+                <img src="produk2.jpg" alt="Minyak Goreng" class="w-full h-48 object-cover rounded">
                 <h3 class="text-xl font-bold mt-2">Minyak Goreng</h3>
-                <p class="text-gray-700">Rp. 15.000/L</p>
+                <p class="text-gray-700">Rp18.000/L</p>
             </div>
-            <div class="bg-white p-4 shadow-md rounded-lg hover:shadow-xl transition-shadow hover:scale-105">
-                <img src="produk3.jpg" alt="Produk 3" class="w-full h-48 object-cover rounded hover:opacity-80">
+            <!-- Gula Pasir -->
+            <div class="min-w-full bg-white p-4 shadow-md rounded-lg">
+                <img src="produk3.jpg" alt="Gula Pasir" class="w-full h-48 object-cover rounded">
                 <h3 class="text-xl font-bold mt-2">Gula Pasir</h3>
-                <p class="text-gray-700">Rp. 14.000/kg</p>
+                <p class="text-gray-700">Rp18.000/kg</p>
             </div>
         </div>
-    </section>
+        <!-- Navigasi -->
+        <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full hover:bg-gray-900 transition">&#10094;</button>
+        <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full hover:bg-gray-900 transition">&#10095;</button>
+    </div>
+    
+    <!-- CTA -->
+    <div class="mt-8">
+        <a href="produk.html" class="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-600 transition-colors">Lihat Semua Produk</a>
+    </div>
+</section>
 
-    <!-- Testimoni Pelanggan -->
-    <section id="testimoni" class="bg-gray-200 py-16 text-center">
-        <h2 class="text-3xl font-bold mb-6">Testimoni Pelanggan</h2>
-        <div class="max-w-lg mx-auto">
-            <p class="text-gray-700 italic hover:text-gray-900">"Belanja di sini murah dan lengkap!" - Siti</p>
-            <p class="text-gray-700 italic mt-2 hover:text-gray-900">"Pelayanan sangat ramah dan cepat!" - Budi</p>
+<!-- Script untuk Carousel Manual -->
+<script>
+    const carousel = document.getElementById('carousel');
+    const next = document.getElementById('next');
+    const prev = document.getElementById('prev');
+    let index = 0;
+    const totalSlides = document.querySelectorAll('#carousel > div').length;
+
+    next.addEventListener('click', () => {
+        index = (index + 1) % totalSlides;
+        updateCarousel();
+    });
+    
+    prev.addEventListener('click', () => {
+        index = (index - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    });
+    
+    function updateCarousel() {
+        carousel.style.transform = `translateX(-${index * 100}%)`;
+    }
+    
+    // Auto-slide setiap 3 detik
+    setInterval(() => {
+        index = (index + 1) % totalSlides;
+        updateCarousel();
+    }, 3000);
+</script>
+
+    <!-- Fotokopi dan ATK Section -->
+<section id="fotokopi-atk" class="bg-gray-200 py-16 text-center px-4">
+    <h2 class="text-3xl font-bold mb-6">Fotokopi dan ATK</h2>
+    <p class="text-gray-700 max-w-lg mx-auto">Kami menyediakan layanan fotokopi berkualitas dan perlengkapan alat tulis kantor (ATK) yang lengkap dengan harga terbaik.</p>
+    
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <!-- Fotokopi -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="text-4xl text-blue-500 mb-4">
+                📄
+            </div>
+            <h3 class="text-xl font-semibold">Layanan Fotokopi</h3>
+            <p class="text-gray-600 mt-2">Fotokopi dokumen hitam-putih dan berwarna dengan hasil tajam dan cepat.</p>
         </div>
-    </section>
 
-    <!-- Tentang Kami -->
-    <section id="tentang" class="py-16 text-center">
-        <h2 class="text-3xl font-bold mb-6">Tentang Kami</h2>
-        <p class="text-gray-700 max-w-2xl mx-auto hover:text-gray-900">Dadi Berkah 88 adalah warung yang menyediakan kebutuhan harian dengan harga terjangkau.</p>
-    </section>
-
-    <!-- Galeri Foto -->
-    <section id="galeri" class="py-16 text-center">
-        <h2 class="text-3xl font-bold mb-6">Galeri</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
-            <img src="toko1.jpg" alt="Foto Toko" class="w-full h-64 object-cover rounded hover:opacity-80 hover:scale-105 transition-transform">
-            <img src="toko2.jpg" alt="Produk di Rak" class="w-full h-64 object-cover rounded hover:opacity-80 hover:scale-105 transition-transform">
+        <!-- Cetak Dokumen -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="text-4xl text-green-500 mb-4">
+                🖨️
+            </div>
+            <h3 class="text-xl font-semibold">Cetak & Scan</h3>
+            <p class="text-gray-600 mt-2">Cetak dokumen dengan berbagai ukuran serta layanan scan digital.</p>
         </div>
-    </section>
 
-    <!-- Kontak -->
-    <section id="kontak" class="bg-gray-200 py-16 text-center">
-        <h2 class="text-3xl font-bold mb-6">Kontak & Lokasi</h2>
-        <p class="text-gray-700">Alamat: Jl. Raya Dadi Berkah No. 88, Kota Anda</p>
-        <p class="text-gray-700">Telepon: 0812-3456-7890</p>
-        <p class="text-gray-700">Email: contact@dadiberkah88.com</p>
-        <div class="mt-6">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="300" class="rounded-lg hover:shadow-lg"></iframe>
+        <!-- ATK -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="text-4xl text-red-500 mb-4">
+                ✏️
+            </div>
+            <h3 class="text-xl font-semibold">Perlengkapan ATK</h3>
+            <p class="text-gray-600 mt-2">Berbagai alat tulis dan perlengkapan kantor dengan harga terjangkau.</p>
         </div>
-    </section>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="mt-8">
+        <a href="fotokopi.html" class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-600 transition">Pesan Sekarang</a>
+    </div>
+</section>
+
+<!-- Jualan Pulsa Section -->
+<section id="jualan-pulsa" class="bg-gray-200 py-16 text-center px-4">
+    <h2 class="text-3xl font-bold mb-6">Jualan Pulsa & Paket Data</h2>
+    <p class="text-gray-700 max-w-lg mx-auto">Kami menyediakan layanan isi ulang pulsa dan paket data dari berbagai operator dengan harga terbaik.</p>
+    
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <!-- Pulsa Reguler -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="text-4xl text-blue-500 mb-4">
+                📱
+            </div>
+            <h3 class="text-xl font-semibold">Pulsa Reguler</h3>
+            <p class="text-gray-600 mt-2">Isi ulang pulsa dengan cepat dan mudah untuk semua operator.</p>
+        </div>
+
+        <!-- Paket Data -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="text-4xl text-green-500 mb-4">
+                🌐
+            </div>
+            <h3 class="text-xl font-semibold">Paket Data</h3>
+            <p class="text-gray-600 mt-2">Beragam pilihan paket data dengan harga terjangkau.</p>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="mt-8">
+        <a href="pesan.html" class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-600 transition">Beli Sekarang</a>
+    </div>
+</section>
+
+    <!-- Kontak & Lokasi -->
+<section id="kontak" class="bg-gray-200 py-16 text-center px-4">
+    <h2 class="text-3xl font-bold mb-6">Kontak & Lokasi</h2>
+    <p class="text-gray-700">Alamat: Jl. Citarum II/B-6/02/RT001/RW013, Simpangan, Kec. Cikarang Utara, Kabupaten Bekasi, Jawa Barat 17530</p>
+    <p class="text-gray-700">Telepon: 0857-1440-7704</p>
+    <p class="text-gray-700">Email: dadiberkah88@gmail.com</p>
+    <div class="mt-6">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d206.881590028451!2d107.1823162225217!3d-6.272966348461955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sJl.%20Citarum%20II%2FB-6%2F02%2FRT001%2FRW013%2C%20Simpangan%2C%20Kec.%20Cikarang%20Utara%2C%20Kabupaten%20Bekasi%2C%20Jawa%20Barat%2017530!5e1!3m2!1sid!2sid!4v1742059922667!5m2!1sid!2sid" 
+            width="100%" 
+            height="300" 
+            class="rounded-lg shadow-md" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+
 
     <!-- Footer -->
     <footer class="bg-blue-600 text-white text-center p-4 mt-8">
