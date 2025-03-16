@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Matriks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-xl font-bold text-center mb-4">Kalkulator Matriks</h1>
+        
+        <!-- Input Ordo Matriks -->
+        <section>
+            <label class="block mb-2">Ordo Matriks (Baris x Kolom):</label>
+            <input type="number" id="rows" placeholder="Baris" class="border p-2 mr-2 w-20 rounded">
+            <input type="number" id="cols" placeholder="Kolom" class="border p-2 w-20 rounded">
+            <button onclick="generateMatrix()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 mt-2">Buat Matriks</button>
+        </section>
+        
+        <!-- Matriks Input -->
+        <section id="matrixContainer" class="mt-4"></section>
+        
+        <!-- Operasi Matriks -->
+        <section class="mt-4">
+            <button onclick="calculateDeterminant()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 mt-4 hidden" id="detButton">Hitung Determinan</button>
+            <button onclick="transposeMatrix()" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-700 mt-2 hidden" id="transButton">Transpos Matriks</button>
+            <button onclick="addMatrix()" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-700 mt-2 hidden" id="addButton">Jumlahkan Matriks</button>
+            <button onclick="multiplyByScalar()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 mt-2 hidden" id="scalarButton">Kali dengan Skalar</button>
+        </section>
+        
+        <!-- Hasil Operasi -->
+        <section>
+            <p id="result" class="mt-4 font-semibold"></p>
+        </section>
+    </div>
+    
+    <script>
+        function generateMatrix() {
+    const rows = document.getElementById('rows').value;
+    const cols = document.getElementById('cols').value;
+    let container = document.getElementById('matrixContainer');
+    container.innerHTML = '';
+
+    let table = document.createElement('table');
+    table.className = 'w-full border border-black mt-2'; // Border lebih tebal
+
+    for (let i = 0; i < rows; i++) {
+        let row = document.createElement('tr');
+        for (let j = 0; j < cols; j++) {
+            let cell = document.createElement('td');
+            let input = document.createElement('input');
+
+            input.type = 'number';
+            input.className = 'w-20 p-3 border border-black text-center text-lg font-bold bg-yellow-200'; // Kontras tinggi dan font besar
+            input.id = `cell-${i}-${j}`;
+            input.setAttribute('aria-label', `Elemen baris ${i + 1}, kolom ${j + 1}`);
+
+            cell.appendChild(input);
+            row.appendChild(cell);
+        }
+        table.appendChild(row);
+    }
+    container.appendChild(table);
+
+    document.getElementById('detButton').classList.toggle('hidden', rows != cols);
+    document.getElementById('transButton').classList.remove('hidden');
+    document.getElementById('addButton').classList.remove('hidden');
+    document.getElementById('scalarButton').classList.remove('hidden');
+}
+        
+        // Fungsi Penjumlahan Matriks
+        function addMatrix() {
+            const rows = document.getElementById('rows').value;
+            const cols = document.getElementById('cols').value;
+            let sumMatrix = [];
+            
+            for (let i = 0; i < rows; i++) {
+                let row = [];
+                for (let j = 0; j < cols; j++) {
+                    row.push((parseFloat(document.getElementById(`cell-${i}-${j}`).value) || 0) * 2);
+                }
+                sumMatrix.push(row);
+            }
+            
+            displayMatrix(sumMatrix, "Hasil Penjumlahan Matriks:");
+        }
+        
+        // Fungsi Perkalian dengan Skalar
+        function multiplyByScalar() {
+            const rows = document.getElementById('rows').value;
+            const cols = document.getElementById('cols').value;
+            let scalar = parseFloat(prompt("Masukkan nilai skalar:")) || 1;
+            let scaledMatrix = [];
+            
+            for (let i = 0; i < rows; i++) {
+                let row = [];
+                for (let j = 0; j < cols; j++) {
+                    row.push((parseFloat(document.getElementById(`cell-${i}-${j}`).value) || 0) * scalar);
+                }
+                scaledMatrix.push(row);
+            }
+            
+            displayMatrix(scaledMatrix, `Hasil Perkalian dengan Skalar ${scalar}:`);
+        }
+        
+        // Fungsi Menampilkan Matriks Hasil
+        function displayMatrix(matrix, title) {
+            let resultHTML = `<h2 class='text-center font-semibold mt-4'>${title}</h2>`;
+            resultHTML += "<table class='w-full border border-gray-300 mt-2'>";
+            matrix.forEach(row => {
+                resultHTML += "<tr>" + row.map(val => `<td class='border p-2 text-center'>${val}</td>`).join('') + "</tr>";
+            });
+            resultHTML += "</table>";
+            document.getElementById('result').innerHTML = resultHTML;
+        }
+    </script>
+</body>
+</html>
