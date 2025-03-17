@@ -26,102 +26,103 @@
         
         <section class="mt-4">
             <label class="block mb-2">Pilih Operasi:</label>
-            <select id="operation" class="border p-2 rounded">
+            <select id="operation" class="border p-2 rounded" onchange="toggleScalarInput()">
                 <option value="add">Penjumlahan</option>
                 <option value="subtract">Pengurangan</option>
-                <option value="multiply">Perkalian</option>
-                <option value="transpose">Transpose</option>
-                <option value="scalar">Perkalian Skalar</option>
+                <option value="multiply">Perkalian Matriks</option>
+                <option value="scalar">Perkalian dengan Skalar</option>
             </select>
-            <button onclick="calculateMatrix()" id="calculateMatrixButton" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-700 mt-2">Hitung</button>
+            <input type="number" id="scalarValue" placeholder="Skalar" class="border p-2 w-20 rounded mt-2 hidden">
+            <button onclick="calculateMatrix()" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-700 mt-2">Hitung</button>
         </section>
         
         <section id="result" class="mt-4 font-semibold"></section>
     </div>
     
     <script>
-        function generateMatrix(type) {
-            const rows = parseInt(document.getElementById('rows').value);
-            const cols = parseInt(document.getElementById('cols').value);
-            if (isNaN(rows) || isNaN(cols) || rows <= 0 || cols <= 0) {
-                alert("Masukkan ordo matriks yang valid!");
-                return;
-            }
-            
-            let container = type === 'A' ? document.getElementById('matrixContainer') : document.getElementById('matrixContainer2');
-            container.innerHTML = `<h2 class="text-center font-semibold">Matriks ${type}</h2>`;
-            
-            let table = createMatrixTable(rows, cols, `cell${type}`);
-            container.appendChild(table);
-        }
-        
-        function createMatrixTable(rows, cols, prefix) {
-            let table = document.createElement('table');
-            table.className = 'w-full border border-black mt-2';
-            
+        function generateMatrix(matrixId) {
+            const rows = parseInt(document.getElementById('rows').value) || 0;
+            const cols = parseInt(document.getElementById('cols').value) || 0;
+            if (rows <= 0 || cols <= 0) return alert("Masukkan ordo matriks yang valid!");
+
+            let container = matrixId === 'A' ? 'matrixContainer' : 'matrixContainer2';
+            let matrixHtml = `<h3 class='font-bold mt-2'>Matriks ${matrixId}</h3>`;
+            matrixHtml += `<div class='grid grid-cols-${cols} gap-2'>`;
+
             for (let i = 0; i < rows; i++) {
-                let row = document.createElement('tr');
                 for (let j = 0; j < cols; j++) {
-                    let cell = document.createElement('td');
-                    let input = document.createElement('input');
-                    input.type = 'number';
-                    input.className = 'w-16 p-2 border border-black text-center text-lg font-bold bg-yellow-200';
-                    input.id = `${prefix}-${i}-${j}`;
-                    cell.appendChild(input);
-                    row.appendChild(cell);
+                    matrixHtml += `<input type='number' id='cell${matrixId}-${i}-${j}' class='border p-2 w-14 text-center rounded'>`;
                 }
-                table.appendChild(row);
             }
-            return table;
+            matrixHtml += `</div>`;
+            document.getElementById(container).innerHTML = matrixHtml;
         }
-        
+
+        function toggleScalarInput() {
+            document.getElementById('scalarValue').classList.toggle('hidden', document.getElementById('operation').value !== 'scalar');
+        }
+
         function calculateMatrix() {
             const operation = document.getElementById('operation').value;
-            if (operation === 'add') {
-                addMatrix();
-            } else if (operation === 'subtract') {
-                subtractMatrix();
+            const rows = parseInt(document.getElementById('rows').value) || 0;
+            const cols = parseInt(document.getElementById('cols').value) || 0;
+            let resultMatrix = [];
+
+            if (operation === 'scalar') {
+                const scalar = parseFloat(document.getElementById('scalarValue').value) || 0;
+                for (let i = 0; i < rows; i++) {
+                    let row = [];
+                    for (let j = 0; j < cols; j++) {
+                        let val = parseFloat(document.getElementById(`cellA-${i}-${j}`)?.value) || 0;
+                        row.push(val * scalar);
+                    }
+                    resultMatrix.push(row);
+                }
             } else if (operation === 'multiply') {
-                multiplyMatrix();
-            } else if (operation === 'transpose') {
-                transposeMatrix();
-            } else if (operation === 'scalar') {
-                scalarMultiplyMatrix();
-            }
-        }
-        
-        function addMatrix() {
-            const rows = parseInt(document.getElementById('rows').value);
-            const cols = parseInt(document.getElementById('cols').value);
-            let sumMatrix = [];
-            
-            for (let i = 0; i < rows; i++) {
-                let row = [];
-                for (let j = 0; j < cols; j++) {
-                    let val1 = parseFloat(document.getElementById(`cellA-${i}-${j}`).value) || 0;
-                    let val2 = parseFloat(document.getElementById(`cellB-${i}-${j}`).value) || 0;
-                    row.push(val1 + val2);
+                const colsB = parseInt(document.getElementById('cols').value) || 0;
+                if (cols !== parseInt(document.getElementById('rows').value)) {
+                    return alert("Jumlah kolom Matriks A harus sama dengan jumlah baris Matriks B!");
                 }
-                sumMatrix.push(row);
-            }
-            displayMatrix(sumMatrix, "Hasil Penjumlahan A + B:");
-        }
-        
-        function subtractMatrix() {
-            const rows = parseInt(document.getElementById('rows').value);
-            const cols = parseInt(document.getElementById('cols').value);
-            let diffMatrix = [];
-            
-            for (let i = 0; i < rows; i++) {
-                let row = [];
-                for (let j = 0; j < cols; j++) {
-                    let val1 = parseFloat(document.getElementById(`cellA-${i}-${j}`).value) || 0;
-                    let val2 = parseFloat(document.getElementById(`cellB-${i}-${j}`).value) || 0;
-                    row.push(val1 - val2);
+
+                for (let i = 0; i < rows; i++) {
+                    let row = [];
+                    for (let j = 0; j < colsB; j++) {
+                        let sum = 0;
+                        for (let k = 0; k < cols; k++) {
+                            let val1 = parseFloat(document.getElementById(`cellA-${i}-${k}`)?.value) || 0;
+                            let val2 = parseFloat(document.getElementById(`cellB-${k}-${j}`)?.value) || 0;
+                            sum += val1 * val2;
+                        }
+                        row.push(sum);
+                    }
+                    resultMatrix.push(row);
                 }
-                diffMatrix.push(row);
+            } else {
+                for (let i = 0; i < rows; i++) {
+                    let row = [];
+                    for (let j = 0; j < cols; j++) {
+                        let val1 = parseFloat(document.getElementById(`cellA-${i}-${j}`)?.value) || 0;
+                        let val2 = parseFloat(document.getElementById(`cellB-${i}-${j}`)?.value) || 0;
+                        let result = (operation === 'add') ? val1 + val2 : val1 - val2;
+                        row.push(result);
+                    }
+                    resultMatrix.push(row);
+                }
             }
-            displayMatrix(diffMatrix, "Hasil Pengurangan A - B:");
+            displayMatrix(resultMatrix, 'Hasil Operasi');
+        }
+
+        function displayMatrix(matrix, title) {
+            let resultHtml = `<h3 class='font-bold mt-4'>${title}</h3>`;
+            resultHtml += `<div class='grid grid-cols-${matrix[0].length} gap-2 mt-2'>`;
+
+            matrix.forEach(row => {
+                row.forEach(num => {
+                    resultHtml += `<span class='border p-2 w-14 text-center rounded bg-gray-200'>${num}</span>`;
+                });
+            });
+            resultHtml += `</div>`;
+            document.getElementById('result').innerHTML = resultHtml;
         }
     </script>
 </body>
