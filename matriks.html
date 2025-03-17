@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <!-- Metadata dan pengaturan awal dokumen -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator Matriks</title>
+    <!-- Menyertakan TailwindCSS untuk styling -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+
+    <!-- Container utama untuk kalkulator matriks -->
     <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
         <h1 class="text-xl font-bold text-center mb-4">Kalkulator Matriks</h1>
         
+        <!-- Form untuk menentukan ordo matriks -->
         <section>
             <label class="block mb-2">Ordo Matriks (Baris x Kolom):</label>
             <input type="number" id="rows" placeholder="Baris" class="border p-2 mr-2 w-20 rounded">
             <input type="number" id="cols" placeholder="Kolom" class="border p-2 w-20 rounded">
         </section>
         
+        <!-- Tombol untuk membuat Matriks A dan B -->
         <section class="mt-4">
             <button onclick="generateMatrix('A')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Buat Matriks A</button>
             <button onclick="generateMatrix('B')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 ml-2">Buat Matriks B</button>
         </section>
         
+        <!-- Tempat untuk menampilkan matriks yang dibuat -->
         <section id="matrixContainer" class="mt-4"></section>
         <section id="matrixContainer2" class="mt-4"></section>
         
+        <!-- Form untuk memilih operasi yang akan dilakukan pada matriks -->
         <section class="mt-4">
             <label class="block mb-2">Pilih Operasi:</label>
             <select id="operation" class="border p-2 rounded" onchange="toggleScalarInput()">
@@ -32,14 +40,17 @@
                 <option value="multiply">Perkalian Matriks</option>
                 <option value="scalar">Perkalian dengan Skalar</option>
             </select>
+            <!-- Input untuk nilai skalar yang muncul jika memilih operasi perkalian dengan skalar -->
             <input type="number" id="scalarValue" placeholder="Skalar" class="border p-2 w-20 rounded mt-2 hidden">
             <button onclick="calculateMatrix()" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-700 mt-2">Hitung</button>
         </section>
         
+        <!-- Tempat untuk menampilkan hasil operasi matriks -->
         <section id="result" class="mt-4 font-semibold"></section>
     </div>
     
     <script>
+        // Fungsi untuk menghasilkan matriks A atau B berdasarkan input baris dan kolom
         function generateMatrix(matrixId) {
             const rows = parseInt(document.getElementById('rows').value) || 0;
             const cols = parseInt(document.getElementById('cols').value) || 0;
@@ -49,6 +60,7 @@
             let matrixHtml = `<h3 class='font-bold mt-2'>Matriks ${matrixId}</h3>`;
             matrixHtml += `<div class='grid grid-cols-${cols} gap-2'>`;
 
+            // Membuat input untuk setiap elemen dalam matriks
             for (let i = 0; i < rows; i++) {
                 for (let j = 0; j < cols; j++) {
                     matrixHtml += `<input type='number' id='cell${matrixId}-${i}-${j}' class='border p-2 w-14 text-center rounded'>`;
@@ -58,16 +70,19 @@
             document.getElementById(container).innerHTML = matrixHtml;
         }
 
+        // Fungsi untuk menampilkan input skalar jika operasi skalar dipilih
         function toggleScalarInput() {
             document.getElementById('scalarValue').classList.toggle('hidden', document.getElementById('operation').value !== 'scalar');
         }
 
+        // Fungsi untuk menghitung hasil operasi matriks
         function calculateMatrix() {
             const operation = document.getElementById('operation').value;
             const rows = parseInt(document.getElementById('rows').value) || 0;
             const cols = parseInt(document.getElementById('cols').value) || 0;
             let resultMatrix = [];
 
+            // Operasi perkalian dengan skalar
             if (operation === 'scalar') {
                 const scalar = parseFloat(document.getElementById('scalarValue').value) || 0;
                 for (let i = 0; i < rows; i++) {
@@ -78,7 +93,9 @@
                     }
                     resultMatrix.push(row);
                 }
-            } else if (operation === 'multiply') {
+            }
+            // Operasi perkalian matriks
+            else if (operation === 'multiply') {
                 const colsB = parseInt(document.getElementById('cols').value) || 0;
                 if (cols !== parseInt(document.getElementById('rows').value)) {
                     return alert("Jumlah kolom Matriks A harus sama dengan jumlah baris Matriks B!");
@@ -97,7 +114,9 @@
                     }
                     resultMatrix.push(row);
                 }
-            } else {
+            }
+            // Operasi penjumlahan atau pengurangan matriks
+            else {
                 for (let i = 0; i < rows; i++) {
                     let row = [];
                     for (let j = 0; j < cols; j++) {
@@ -112,6 +131,7 @@
             displayMatrix(resultMatrix, 'Hasil Operasi');
         }
 
+        // Fungsi untuk menampilkan hasil matriks setelah operasi dilakukan
         function displayMatrix(matrix, title) {
             let resultHtml = `<h3 class='font-bold mt-4'>${title}</h3>`;
             resultHtml += `<div class='grid grid-cols-${matrix[0].length} gap-2 mt-2'>`;
